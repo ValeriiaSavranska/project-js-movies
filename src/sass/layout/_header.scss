@@ -71,33 +71,6 @@
   }
 }
 
-.header__library {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(../images/library/library-mobile-1x.jpg);
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/library/library-mobile-2x.jpg);
-  }
-
-  @include for-tablet {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/library/library-tablet-1x.jpg);
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/library/library-tablet-2x.jpg);
-    }
-  }
-
-  @include for-desktop {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/library/library-desktop-1x.jpg);
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/library/library-desktop-2x.jpg);
-    }
-  }
-}
-
 .header-nav__list {
   display: flex;
   color: $main-bg-text-color;
@@ -191,52 +164,4 @@
   &:hover {
     opacity: 0.8;
   }
-}
-
-.search-film__errors {
-  display: flex;
-  justify-content: center;
-  color: $error-text-colour;
-  margin-top: 22px;
-}
-
-.library__navigation {
-  display: flex;
-  justify-content: center;
-  margin-top: 47px;
-}
-
-.btn {
-  width: 134px;
-  height: 44px;
-  border-radius: 5px;
-  color: $main-bg-text-color;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color, background-color;
-  transition-duration: $duration-main;
-  transition-timing-function: $timing-function-main;
-
-  &:hover {
-    border: 2px solid $accent-color;
-    color: $accent-color;
-    background-color: #ff6b013d;
-  }
-}
-
-.btn-active {
-  background-color: $accent-color;
-  border: 2px solid $accent-color;
-}
-
-.btn-left {
-  margin-right: 20px;
-  @include for-tablet {
-    margin-right: 15px;
-  }
-}
-
-.btn-passive {
-  border: 1px solid $main-bg-text-color;
-  background-color: initial;
 }
