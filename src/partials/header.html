@@ -1,0 +1,47 @@
+<header id="head" class="header header__main">
+  <div class="container">
+    <div class="header-nav">
+      <button type="button" class="header-nav__logo" id="nav-logo">
+        <svg class="header-nav__icon" width="24" height="24">
+          <!-- <use href="./images/sprite.svg#film_logo"></use> -->
+        </svg>
+        <h1 class="header-nav__title">Filmoteka</h1>
+      </button>
+      <ul class="header-nav__list">
+        <li class="header-nav__list-item">
+          <a href="./index.html" class="header-nav__list-item-link current" id="home-page">Home</a>
+        </li>
+        <li class="header-nav__list-item">
+          <a href="" class="header-nav__list-item-link library" id="library-page">My library</a>
+        </li>
+      </ul>
+    </div>
+    <div class="search-film__wrap">
+      <div class="search-film__input">
+        <form id="form">
+          <input
+            type="text"
+            name="search"
+            autocomplete="off"
+            placeholder="Поиск фильмов"
+            class="input__form"
+          />
+          <span class="input__btn">
+            <svg class="input__btn-icon" width="12" height="12">
+              <!-- <use href="./images/sprite.svg#search"></use> -->
+            </svg>
+          </span>
+        </form>
+      </div>
+    </div>
+    <div class="search-film__notifications">
+      <p class="search-film__errors visually-hidden">
+        Search result not successful. Enter the correct movie name
+      </p>
+    </div>
+    <div id="#libNav" class="library__navigation">
+      <button id="watched-btn" type="button" class="btn btn-left visually-hidden">watched</button>
+      <button id="queue-btn" type="button" class="btn btn-passive visually-hidden">queue</button>
+    </div>
+  </div>
+</header>

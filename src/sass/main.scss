@@ -6,6 +6,9 @@
 // Стили для файла с примером HTML-фрагмента
 @import './base/reset';
 @import './base/visually-hidden';
+@import './base/_breakpoints-placeholders';
+@import './base/container';
+@import './base/variables';
 
 @import './components/buttons';
 @import './layout/header';
