@@ -3,6 +3,9 @@
 import { BASE_URL, API_KEY, page } from './services/variables-for-request';
 
 const galleryDiv = document.querySelector('.gallery');
+
+const headerNavTitle = document.querySelector('.header-nav__logo');
+console.log(headerNavTitle);
 const a = [{id: 28, name: 'Action'},
 {id: 12, name: 'Adventure'},
 {id: 16, name: 'Animation'},
@@ -48,41 +51,31 @@ const getTrendingMovies = async () => {
 
 // getGenres().then(genres => console.log(genres));
 
-function markupList(movies) {
+function markupTrendin(movies) {
   const markup = movies.results
-      .map(({ poster_path, backdrop_pathL, genre_ids, release_date, title }) => {
-          const yer = new Date(release_date);
-          let q = [];
-          for (let i = 0; i < genre_ids.length; i++) {
-              const keys = Object.keys(a);
-              for (const key of keys) {
-                //   console.log(genre_ids[i]);
-                //   console.log(a[key].id);
-                if (genre_ids[i] === a[key].id) {
-                  q.push(a[key].name);
-                }
-              }
-
-
-            
+    .map(({ poster_path, backdrop_pathL, genre_ids, release_date, title }) => {
+      const yer = new Date(release_date);
+      let q = [];
+      for (let i = 0; i < genre_ids.length; i++) {
+        const keys = Object.keys(a);
+        for (const key of keys) {
+          //   console.log(genre_ids[i]);
+          //   console.log(a[key].id);
+          if (genre_ids[i] === a[key].id) {
+            q.push(a[key].name);
           }
-          console.log(q)
+        }
+      }
+      //console.log(q);
       return `<div class="container">
     <ul class="gallery">
-    
         <li><img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="" loading="lazy" width="" height="" />
-    
         <div class="info">
-    
             <h2 class="photo-card__title">${title}</h2>
             <ul class="photo-card__text">
-    
                 <li class="link-genre">${q}</li>
-    
                 <li class="link-year">${yer.getFullYear()}</li>
-    
             </ul>
-   
         </div>
         </li>
     </ul>
@@ -90,8 +83,42 @@ function markupList(movies) {
     })
     .join('');
   galleryDiv.insertAdjacentHTML('beforeend', markup);
-  
 }
-getTrendingMovies().then(movies => markupList(movies));
+getTrendingMovies().then(movies => markupTrendin(movies));
 
-//galleryDiv.addEventListener('click', onbtnLoadMore);
+headerNavTitle.addEventListener('click', (e) => {
+  //e.preventDefault();
+  getTrendingMovies().then(movies => {
+    const vmarkup = movies.results
+      .map(({ poster_path, backdrop_pathL, genre_ids, release_date, title }) => {
+        const yer = new Date(release_date);
+        let q = [];
+        for (let i = 0; i < genre_ids.length; i++) {
+          const keys = Object.keys(a);
+          for (const key of keys) {
+            //   console.log(genre_ids[i]);
+            //   console.log(a[key].id);
+            if (genre_ids[i] === a[key].id) {
+              q.push(a[key].name);
+            }
+          }
+        }
+        //console.log(q);
+        return `<div class="container">
+    <ul class="gallery">
+        <li><img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="" loading="lazy" width="" height="" />
+        <div class="info">
+            <h2 class="photo-card__title">${title}</h2>
+            <ul class="photo-card__text">
+                <li class="link-genre">${q}</li>
+                <li class="link-year">${yer.getFullYear()}</li>
+            </ul>
+        </div>
+        </li>
+    </ul>
+</div>`;
+      })
+      .join('');
+    galleryDiv.insertAdjacentHTML('beforeend', vmarkup);
+  }
+)})
