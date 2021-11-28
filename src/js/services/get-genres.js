@@ -6,4 +6,5 @@ const getGenres = async () => {
   return data;
 };
 
-getGenres().then(genres => console.log(genres));
+//getGenres().then(genres => console.log(genres));
+export { getGenres };

@@ -6,4 +6,5 @@ const getSearchMovie = async movieToSearch => {
   return data;
 };
 
-getSearchMovie('venom').then(movies => console.log(movies));
+//getSearchMovie('venom').then(movies => console.log(movies));
+export { getSearchMovie };
