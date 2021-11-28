@@ -27,10 +27,11 @@ function markupTrendin(movies) {
         }
         const yer = new Date(release_date);
         const markupTwo = `
-        <li class="card"><img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}" loading="lazy" width="" height="" />
-        <div class="info">
-            <h2 class="photo-card__title">${title}</h2>
-            <ul class="photo-card__text">
+        <li class="card">
+        <img class="card-img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}" loading="lazy" />
+        <div class="card-info">
+            <h2 class="card-info__title">${title}</h2>
+            <ul class="card-info__text">
                 <li class="link-genre">${Other.join(', ')} | ${yer.getFullYear()}</li>
             </ul>
         </div>
