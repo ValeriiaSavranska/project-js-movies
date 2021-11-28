@@ -10,6 +10,14 @@
     color: #545454;
   }
 
+  &__second-text {
+    display: flex;
+  }
+
+  &__icon {
+    margin: 0 5px;
+  }
+
   &__link {
     position: relative;
     color: #545454;
