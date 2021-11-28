@@ -17,4 +17,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"../services/get-trending-movies":"nNIc","../services/get-genres":"YKgG"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/main"),require("./js/services/get-trending-movies"),require("./js/services/search-movie"),require("./js/services/get-movie-card"),require("./js/services/get-genres"),require("./js/partials-js/main-page");
 },{"./sass/main.scss":"clu1","./js/main":"d6sW","./js/services/get-trending-movies":"nNIc","./js/services/search-movie":"FI2B","./js/services/get-movie-card":"jlpY","./js/services/get-genres":"YKgG","./js/partials-js/main-page":"zd8N"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-js-movies/src.e4d04f55.js.map
+//# sourceMappingURL=/project-js-movies/src.c5ea7d5a.js.map
