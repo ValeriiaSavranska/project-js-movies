@@ -6,4 +6,5 @@ const getTrendingMovies = async () => {
   return data;
 };
 
-getTrendingMovies().then(movies => console.log(movies));
+//getTrendingMovies().then(movies => console.log(movies));
+export { getTrendingMovies };
