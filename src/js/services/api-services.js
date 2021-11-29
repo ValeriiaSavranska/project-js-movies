@@ -16,9 +16,15 @@ const getTrendingMovies = async () => {
 };
 
 const getSearchMovie = async movieToSearch => {
-  const response = await fetch(`${BASE_URL}search/movie?api_key=${API_KEY}&query=${movieToSearch}`);
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `${BASE_URL}search/movie?api_key=${API_KEY}&query=${movieToSearch}`,
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
 const getMovieById = async movieId => {
