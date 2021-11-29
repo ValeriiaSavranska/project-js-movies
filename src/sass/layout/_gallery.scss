@@ -2,6 +2,14 @@
   background-color: $cards-bg-colour;
 }
 
+// .page-main__title {
+//   font-size: 25px;
+//   font-weight: 500;
+//   text-align: 1.16;
+//   text-align: center;
+//   padding-top: 20px;
+// }
+
 .gallery {
   min-width: 280px;
   display: flex;
@@ -25,8 +33,18 @@
 }
 
 .card {
-  //   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+  &:hover,
+  &:focus {
+    flex-shrink: 2;
+    box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    text-align: center;
+    background-color: $footer-bgc;
 
+    .card-img {
+      border-radius: 5px 5px 0 0;
+    }
+  }
   width: 280px;
   height: 443px;
   @include for-tablet {
