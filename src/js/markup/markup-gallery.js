@@ -1,12 +1,24 @@
-// const markupGallery = `<li class="gallery-card">
-//   <img class="gallery-card_img" src="${poster_path}" alt="${title}" loading="lazy"   />
+import { genres } from '../services/get-genres';
 
-//   <div class="gallery-card__info">
-//     <h2 class="gallery__title">${title}</h2>
-//     <ul class="gallery__text">
-//       <li class="link-genre">${genre}</li>
-
-//       <li class="link-year">${release_date}</li>
-//     </ul>
-//   </div>
-// </li>`;
+export default function createMarkup(movies) {
+const markup = movies.results.map(
+    ({ poster_path, backdrop_pathL, genre_ids, release_date, title }) => {
+    let arrGenre = genre_ids.map(id => genres.find(genre => genre.id === id)?.name ?? 'Other');
+    if (arrGenre.length > 3) {
+        arrGenre.splice(2, arrGenre.length - 2, 'Other');
+    }
+    const yer = new Date(release_date);
+    return `
+        <li class="card">
+        <img class="card-img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}" loading="lazy" />
+        <div class="card-info">
+            <h2 class="card-info__title">${title}</h2>
+            <ul class="card-info__text">
+                <li class="link-genre">${arrGenre.join(', ')} | ${yer.getFullYear()}</li>
+            </ul>
+        </div>
+        </li>`;
+    },
+);
+return markup.join('');
+}
