@@ -3,7 +3,7 @@ import { genres } from '../services/api-services';
 export default function createMarkup(movies) {
   const markup = movies.results.map(
     ({ id, poster_path, backdrop_pathL, genre_ids, release_date, title }) => {
-      let arrGenre = genre_ids.map(id => genres.find(genre => genre.id === id)?.name);
+      let arrGenre = genre_ids.map(id => genres.find(genre => genre.id === id).name);
       let img = `https://image.tmdb.org/t/p/w300${poster_path}`;
       if (arrGenre.length > 3) {
         arrGenre.splice(2, arrGenre.length - 2, 'Other');
