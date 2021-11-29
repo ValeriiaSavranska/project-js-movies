@@ -9,6 +9,7 @@
 }
 
 .modal {
+  overflow: scroll;
   padding: 48px 20px 40px 20px;
   position: absolute;
   left: 50%;
@@ -16,6 +17,7 @@
   transform: translate(-50%, -50%);
   background-color: $main-bg-text-color;
   width: 280px;
+  max-height: 568px;
 
   @media screen and (min-width: 768px) {
     padding-top: 42px;
@@ -72,11 +74,13 @@
 
     @media screen and (min-width: 768px) {
       margin-right: 30px;
+      margin-bottom: 0;
       width: 264px;
     }
 
     @media screen and (min-width: 1024px) {
       width: 396px;
+      height: 477px;
     }
   }
 

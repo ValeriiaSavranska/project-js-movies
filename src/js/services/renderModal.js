@@ -14,11 +14,25 @@ galleryRef.addEventListener('click', e => {
     const bodyRef = document.querySelector('body');
     bodyRef.style.overflow = 'hidden';
 
-    const btnColseRef = document.querySelector(`button[data-action="${id}"]`);
-    btnColseRef.addEventListener('click', e => {
-      const backdrop = e.target.closest('.backdrop');
-      backdrop.remove();
-      bodyRef.style.overflow = 'auto';
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') backdropRef.remove();
+    });
+
+    const backdropRef = document.querySelector(`div[data-action="${id}"]`);
+
+    backdropRef.addEventListener('click', e => {
+      if (
+        e.target.classList.contains('modal__btn-colse') ||
+        e.target.classList.contains('modal__icon-close')
+      ) {
+        backdropRef.remove();
+      }
+
+      if (!e.target.classList.contains('backdrop')) {
+        return;
+      }
+      backdropRef.remove();
+      backdropRef.style.overflow = 'visible';
     });
   });
 });

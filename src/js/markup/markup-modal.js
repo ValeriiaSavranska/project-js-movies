@@ -9,10 +9,10 @@ export default function markupModal({
   overview,
 }) {
   const markup = `
-    <div class="backdrop">
+    <div class="backdrop" data-action="${id}">
 
             <div class="modal">
-                <button class="modal__btn-colse" data-action="${id}">
+                <button class="modal__btn-colse"  >
                     <div class="modal__icon-close"></div>
                 </button>
                 <img class="modal__img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="">
@@ -39,7 +39,7 @@ export default function markupModal({
                                 <span class="modal__votes">${vote_average}</span> / ${vote_count}
                             </li>
                             <li class="modal__text ">
-                                ${popularity}
+                                ${popularity.toFixed(1)}
                             </li>
                             <li class="modal__text modal__text--uppercase">
                                 ${title}
