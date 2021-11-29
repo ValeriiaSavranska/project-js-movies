@@ -18,6 +18,7 @@
 
 .header-nav__icon {
   stroke: $logo-icon-color;
+  margin-right: 12px;
 
   @include for-tablet {
     padding-top: 5px;
@@ -38,7 +39,6 @@
     font-size: 30px;
     line-height: 1.17;
     color: $main-bg-text-color;
-    margin-left: 12px;
   }
   @include for-desktop {
   }
