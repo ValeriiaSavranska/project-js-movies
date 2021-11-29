@@ -5,6 +5,7 @@ const galleryDiv = document.querySelector('.gallery');
 const headerNavTitle = document.querySelector('.header-nav__logo');
 
 function markupTrendin(movies) {
+
   const markup = movies.results.map(
     ({ poster_path, backdrop_pathL, genre_ids, release_date, title }) => {
       let Other = [];
@@ -45,5 +46,6 @@ getTrendingMovies().then(movies => markupTrendin(movies));
 
 headerNavTitle.addEventListener('click', e => {
   e.preventDefault();
+  galleryDiv.innerHTML = '';
   getTrendingMovies().then(movies => markupTrendin(movies));
 });
