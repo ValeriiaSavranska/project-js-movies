@@ -1,12 +1,12 @@
 <header id="head" class="header header__main">
   <div class="container">
     <div class="header-nav">
-      <button type="button" class="header-nav__logo" id="nav-logo">
+      <a class="header-nav__logo header-nav__title" id="nav-logo">
         <svg class="header-nav__icon" width="25" height="25">
           <use href="#">#</use>
         </svg>
-        <h1 class="header-nav__title">Filmoteka</h1>
-      </button>
+        Filmoteka
+      </a>
       <ul class="header-nav__list">
         <li class="header-nav__list-item">
           <a href="./index.html" class="header-nav__list-item-link current" id="home-page">Home</a>
@@ -33,6 +33,10 @@
           </span>
         </form>
       </div>
+    </div>
+    <div class="my-library__wrap visually-hidden">
+      <button class="my-library__button my-library__button-active">Watched</button>
+      <button class="my-library__button">Queue</button>
     </div>
   </div>
 </header>

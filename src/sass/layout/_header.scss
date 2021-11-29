@@ -18,6 +18,7 @@
 
 .header-nav__icon {
   stroke: $logo-icon-color;
+  margin-right: 12px;
 
   @include for-tablet {
     padding-top: 5px;
@@ -38,7 +39,6 @@
     font-size: 30px;
     line-height: 1.17;
     color: $main-bg-text-color;
-    margin-left: 12px;
   }
   @include for-desktop {
   }
@@ -163,5 +163,63 @@
 
   &:hover {
     opacity: 0.8;
+  }
+}
+
+// MY-LIBRARY-PAGE
+
+.header__main--library-bcg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/library/library-mobile-1x.jpg);
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/library/library-mobile-2x.jpg);
+  }
+
+  @include for-tablet {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/library/library-tablet-1x.jpg);
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/library/library-tablet-2x.jpg);
+    }
+  }
+
+  @include for-desktop {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/library/library-desktop-1x.jpg);
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/library/library-desktop-2x.jpg);
+    }
+  }
+}
+
+.my-library {
+  &__wrap {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__button {
+    padding: 14px 38px 12px 38px;
+
+    border: 1px solid $main-bg-text-color;
+    border-radius: 5px;
+    background: transparent;
+    color: $main-bg-text-color;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    &-active {
+      background: $accent-color;
+      box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+      border-color: $accent-color;
+    }
   }
 }

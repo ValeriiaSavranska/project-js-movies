@@ -1,6 +1,7 @@
 import './sass/main.scss';
 
 import './js/main';
+import './js/partials-js/header';
 
 import './js/partials-js/footer';
 
