@@ -18,14 +18,19 @@
 
 .header-nav__icon {
   stroke: $logo-icon-color;
-  margin-right: 12px;
+  // margin-right: 12px;
 
   @include for-tablet {
-    padding-top: 5px;
+    padding-top: 6px;
+  }
+  @include for-desktop {
+    margin-right: 7px;
   }
 }
 
 .header-nav__logo {
+  // display: flex;
+  // align-items: baseline;
   background-color: inherit;
   border: none;
   cursor: pointer;
@@ -41,6 +46,8 @@
     color: $main-bg-text-color;
   }
   @include for-desktop {
+    display: flex;
+    // align-items: ce;
   }
 }
 

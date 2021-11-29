@@ -1,4 +1,4 @@
-import { genres } from '../services/get-genres';
+import { genres } from '../services/api-services';
 
 export default function createMarkup(movies) {
 const markup = movies.results.map(
@@ -19,6 +19,6 @@ const markup = movies.results.map(
         </div>
         </li>`;
     },
-);
-return markup.join('');
+  );
+  return markup.join('');
 }
