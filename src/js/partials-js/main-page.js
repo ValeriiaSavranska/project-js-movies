@@ -13,7 +13,6 @@ getGenres()
   .then(getTrendingMovies)
   .then(movies => renderMovies(movies));
 
-//getTrendingMovies().then(movies => markupTrendin(movies));
 
 
 
