@@ -2,6 +2,8 @@ import './sass/main.scss';
 
 import './js/main';
 
+import './js/partials-js/footer';
+
 import './js/services/get-trending-movies';
 import './js/services/search-movie';
 import './js/services/get-movie-card';
