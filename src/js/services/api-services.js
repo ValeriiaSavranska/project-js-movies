@@ -19,12 +19,15 @@ const getTrendingMovies = async () => {
 };
 
 const getSearchMovie = async movieToSearch => {
-  const response = await fetch(`${BASE_URL}search/movie?api_key=${API_KEY}&query=${movieToSearch}`);
-  const data = await response.json();
-  return data;
+  return handleBySpin(async () => {
+    const response = await fetch(
+      `${BASE_URL}search/movie?api_key=${API_KEY}&query=${movieToSearch}`,
+    );
+    return response.json();
+  });
 };
 
-const getSearchMovie = async movieId => {
+const getMovieById = async movieId => {
   return handleBySpin(async () => {
     const response = await fetch(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}`);
     return response.json();

@@ -20,10 +20,3 @@ const hideSpinner = () => {
 export { showSpinner, hideSpinner, handleBySpin };
 
 // import { handleBySpin } from '../main';
-
-// const getSearchMovie = async movieId => {
-//   return handleBySpin(async () => {
-//     const response = await fetch(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}`);
-//     return response.json();
-//   });
-// };
