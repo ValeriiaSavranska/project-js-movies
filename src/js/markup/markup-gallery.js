@@ -1,14 +1,14 @@
 import { genres } from '../services/api-services';
 
 export default function createMarkup(movies) {
-const markup = movies.results.map(
+  const markup = movies.results.map(
     ({ id, poster_path, backdrop_pathL, genre_ids, release_date, title }) => {
-    let arrGenre = genre_ids.map(id => genres.find(genre => genre.id === id)?.name ?? 'Other');
-    if (arrGenre.length > 3) {
+      let arrGenre = genre_ids.map(id => genres.find(genre => genre.id === id)?.name);
+      if (arrGenre.length > 3) {
         arrGenre.splice(2, arrGenre.length - 2, 'Other');
-    }
-    const yer = new Date(release_date);
-    return `
+      }
+      const yer = new Date(release_date);
+      return `
         <li class="card" id = ${id}>
         <img class="card-img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}" loading="lazy" />
         <div class="card-info">
