@@ -1,12 +1,11 @@
-import { getTrendingMovies } from '../services/get-trending-movies';
-import { getGenres } from '../services/get-genres';
+import { getGenres, getTrendingMovies } from '../services/api-services';
 import createMarkup from '../markup/markup-gallery';
 
 const galleryDiv = document.querySelector('.gallery');
 const headerNavTitle = document.querySelector('.header-nav__logo');
 
-const renderMovies = async movies => {
-  const markup = await createMarkup(movies);
+const renderMovies = movies => {
+  const markup = createMarkup(movies);
   galleryDiv.innerHTML = markup;
 };
 getGenres()
