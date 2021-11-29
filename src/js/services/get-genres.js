@@ -1,5 +1,6 @@
 import { BASE_URL, API_KEY } from './variables-for-request';
-let genres = []
+import { handleBySpin } from '../main';
+let genres = [];
 
 const getGenres = async () => {
   const response = await fetch(`${BASE_URL}genre/movie/list?api_key=${API_KEY}`);
