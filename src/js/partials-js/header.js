@@ -1,23 +1,23 @@
 const header = document.querySelector('#head');
 const homePage = document.querySelector('#home-page');
 const libraryPage = document.querySelector('#library-page');
-const headerNav = document.querySelector('.header-nav');
 const homePageWrapper = document.querySelector('.search-film__wrap');
 const libraryPageWrapper = document.querySelector('.my-library__wrap');
 const navLogo = document.querySelector('#nav-logo');
-const logoIcon = document.querySelector('.header-nav__icon');
+const headerNavBtns = document.querySelector('.header-nav__list');
 
 const changePage = e => {
   e.preventDefault();
 
-  if (e.target === e.currentTarget) return;
+  if (e.target === headerNavBtns) return;
 
-  if (e.target === homePage || e.target === navLogo || e.target === logoIcon) {
+  if (e.target === homePage || e.currentTarget === navLogo) {
     libraryPageWrapper.classList.add('visually-hidden');
     homePageWrapper.classList.remove('visually-hidden');
     libraryPage.classList.remove('current');
     homePage.classList.add('current');
     header.classList.remove('header__main--library-bcg');
+    console.log('ok');
   }
 
   if (e.target === libraryPage) {
@@ -29,4 +29,5 @@ const changePage = e => {
   }
 };
 
-headerNav.addEventListener('click', changePage);
+headerNavBtns.addEventListener('click', changePage);
+navLogo.addEventListener('click', changePage);
