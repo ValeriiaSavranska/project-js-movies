@@ -12,7 +12,6 @@ getGenres()
   .then(getTrendingMovies)
   .then(movies => renderMovies(movies));
 
-//getTrendingMovies().then(movies => markupTrendin(movies));
 
 headerNavTitle.addEventListener('click', e => {
   e.preventDefault();
