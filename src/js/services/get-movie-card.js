@@ -6,5 +6,4 @@ const getSearchMovie = async movieId => {
   return data;
 };
 
-//getSearchMovie(850522).then(movie => console.log(movie));
 export { getSearchMovie };

@@ -12,3 +12,5 @@ import './js/services/get-genres';
 import './js/partials-js/main-page';
 
 // import './js/markup/'
+
+import './js/services/renderModal';
