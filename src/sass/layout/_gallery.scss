@@ -1,0 +1,71 @@
+.page-main {
+  background-color: $cards-bg-colour;
+}
+
+.gallery {
+  min-width: 280px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 120px;
+
+  gap: 20px;
+
+  @include for-tablet {
+    min-width: 618px;
+
+    padding-top: 60px;
+    padding-bottom: 150px;
+    gap: 30px;
+  }
+  @include for-desktop {
+    min-width: 882px;
+  }
+}
+
+.card {
+  //   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+
+  width: 280px;
+  height: 443px;
+  @include for-tablet {
+    width: 294px;
+    height: 440px;
+  }
+  @include for-desktop {
+    width: 274px;
+  }
+
+  &-img {
+    border-radius: 5px;
+    width: 280px;
+    height: 402px;
+    @include for-tablet {
+      width: 294px;
+      height: 398px;
+    }
+    @include for-desktop {
+      width: 274px;
+    }
+  }
+  &-info {
+    padding-top: 10px;
+    padding-left: 1px;
+    &__title {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      line-height: 1.16;
+      @include for-tablet {
+        line-height: 1.33;
+      }
+    }
+    &__text {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.33;
+      color: $accent-color;
+    }
+  }
+}
