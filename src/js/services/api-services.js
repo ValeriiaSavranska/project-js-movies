@@ -14,6 +14,7 @@ const getGenres = async () => {
 const getTrendingMovies = async (page = 1) => {
   return handleBySpin(async () => {
     const response = await fetch(`${BASE_URL}trending/movie/week?api_key=${API_KEY}&page=${page}`);
+
     return response.json();
   });
 };
@@ -23,7 +24,7 @@ const getSearchMovie = async (movieToSearch, page = 1) => {
     const response = await fetch(
       `${BASE_URL}search/movie?api_key=${API_KEY}&query=${movieToSearch}&page=${page}`,
     );
-    console.log(response);
+
     return response.json();
   });
 };
