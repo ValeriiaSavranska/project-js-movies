@@ -1,6 +1,7 @@
 import Notiflix from 'notiflix';
 import { getGenres, getTrendingMovies, getSearchMovie } from '../services/api-services';
 import createMarkup from '../markup/markup-gallery';
+import { onPagination } from '../services/pagination';
 
 const galleryDiv = document.querySelector('.gallery');
 const headerNavTitle = document.querySelector('.header-nav__logo');
@@ -15,13 +16,18 @@ const renderMovies = movies => {
 };
 getGenres()
   .then(getTrendingMovies)
-  .then(movies => renderMovies(movies));
-
+  .then(movies => {
+    onPagination(movies.total_pages);
+    renderMovies(movies);
+  });
 
 headerNavTitle.addEventListener('click', e => {
   e.preventDefault();
   galleryDiv.innerHTML = '';
-  getTrendingMovies().then(movies => renderMovies(movies));
+  getTrendingMovies().then(movies => {
+    onPagination(movies.total_pages);
+    renderMovies(movies);
+  });
 });
 
 linkHome.addEventListener('click', e => {
@@ -64,3 +70,5 @@ Notiflix.Notify.init({
   position: 'center-top',
   clickToClose: true,
 });
+
+export { renderMovies };
