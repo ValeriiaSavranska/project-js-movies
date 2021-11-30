@@ -9,7 +9,6 @@
 }
 
 .modal {
-  overflow: scroll;
   padding: 48px 20px 40px 20px;
   position: absolute;
   left: 50%;
@@ -25,6 +24,7 @@
     padding-left: 30px;
     display: flex;
     width: 618px;
+    max-height: 600px;
   }
 
   @media screen and (min-width: 1024px) {
@@ -172,4 +172,8 @@
 
 button {
   border: transparent;
+}
+
+.dont-scroll {
+  overflow: hidden;
 }

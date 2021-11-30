@@ -12,10 +12,11 @@ galleryRef.addEventListener('click', e => {
     galleryRef.insertAdjacentHTML('beforeend', markup);
 
     const bodyRef = document.querySelector('body');
-    bodyRef.style.overflow = 'hidden';
+    bodyRef.classList.add('dont-scroll');
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') backdropRef.remove();
+      bodyRef.classList.remove('dont-scroll');
     });
 
     const backdropRef = document.querySelector(`div[data-action="${id}"]`);
@@ -26,13 +27,14 @@ galleryRef.addEventListener('click', e => {
         e.target.classList.contains('modal__icon-close')
       ) {
         backdropRef.remove();
+        bodyRef.classList.remove('dont-scroll');
       }
 
       if (!e.target.classList.contains('backdrop')) {
         return;
       }
       backdropRef.remove();
-      backdropRef.style.overflow = 'visible';
+      bodyRef.classList.remove('dont-scroll');
     });
   });
 });
