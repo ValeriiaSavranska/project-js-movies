@@ -3,7 +3,7 @@
     <div class="header-nav">
       <a class="header-nav__logo header-nav__title" id="nav-logo">
         <svg class="header-nav__icon" width="30" height="30">
-          <use href="./images/icons.svg#icon-film"></use>
+          <use href="./images/icons.svg#icon-film" class="header-nav__svg"></use>
         </svg>
         Filmoteka
       </a>
@@ -26,17 +26,19 @@
             placeholder="Поиск фильмов"
             class="input__form"
           />
-          <span class="input__btn">
+          <button type="submit" class="input__btn">
             <svg class="input__btn-icon" width="12" height="12">
               <use href="./images/icons.svg#icon-search"></use>
             </svg>
-          </span>
+          </button>
         </form>
       </div>
     </div>
     <div class="my-library__wrap visually-hidden">
-      <button class="my-library__button my-library__button-active">Watched</button>
-      <button class="my-library__button">Queue</button>
+      <button class="my-library__button my-library__button-active" data-button="watched">
+        Watched
+      </button>
+      <button class="my-library__button" data-button="queue">Queue</button>
     </div>
   </div>
 </header>
