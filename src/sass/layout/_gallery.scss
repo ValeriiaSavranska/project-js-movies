@@ -1,5 +1,5 @@
 .page-main {
-  // background-color: $cards-bg-colour;
+  background-color: $main-bg-text-color;
 }
 
 // .page-main__title {
@@ -16,7 +16,7 @@
   flex-wrap: wrap;
   margin: 0 auto;
   padding-top: 20px;
-  padding-bottom: 120px;
+  padding-bottom: 40px;
 
   gap: 20px;
 
@@ -24,7 +24,7 @@
     min-width: 618px;
 
     padding-top: 60px;
-    padding-bottom: 150px;
+    padding-bottom: 50px;
     gap: 30px;
   }
   @include for-desktop {
@@ -35,11 +35,10 @@
 .card {
   &:hover,
   &:focus {
-    flex-shrink: 2;
     box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    text-align: center;
-    background-color: $footer-bgc;
+
+    background-color: $cards-bg-colour;
 
     .card-img {
       border-radius: 5px 5px 0 0;
