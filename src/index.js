@@ -12,3 +12,5 @@ import './js/partials-js/up_btn';
 import './js/services/api-services';
 
 // import './js/markup/'
+
+import './js/services/renderModal';
