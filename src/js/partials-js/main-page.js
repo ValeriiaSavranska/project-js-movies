@@ -33,7 +33,10 @@ headerNavTitle.addEventListener('click', e => {
 linkHome.addEventListener('click', e => {
   e.preventDefault();
   galleryDiv.innerHTML = '';
-  getTrendingMovies().then(movies => renderMovies(movies));
+  getTrendingMovies().then(movies => {
+    onPagination(movies.total_pages);
+    renderMovies(movies);
+  });
 });
 
 searchMovieForm.addEventListener('submit', onSearchMovie);
@@ -44,7 +47,10 @@ function onSearchMovie(e) {
   const inputText = e.target.search.value;
   console.log('inputText', inputText);
   if (!inputText) {
-    getTrendingMovies().then(movies => renderMovies(movies));
+    getTrendingMovies().then(movies => {
+      onPagination(movies.total_pages);
+      renderMovies(movies);
+    });
     return;
   }
 
@@ -55,6 +61,8 @@ function onSearchMovie(e) {
       if (movies.results.length === 0) {
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
       }
+
+      onPagination(movies.total_pages, inputText);
       renderMovies(movies);
       console.log('onSearchMovie ~ movies', movies);
     })
