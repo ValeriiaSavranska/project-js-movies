@@ -33,4 +33,5 @@ const getMovieById = async movieId => {
     return response.json();
   });
 };
+
 export { getGenres, genres, getTrendingMovies, getSearchMovie, getMovieById };

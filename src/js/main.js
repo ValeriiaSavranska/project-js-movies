@@ -13,8 +13,10 @@ const showSpinner = () => {
 };
 
 const hideSpinner = () => {
-  loader.classList.remove('loader-show');
-  loader.classList.add('loader-hide');
+  setTimeout(() => {
+    loader.classList.remove('loader-show');
+    loader.classList.add('loader-hide');
+  }, 1000);
 };
 
 export { showSpinner, hideSpinner, handleBySpin };

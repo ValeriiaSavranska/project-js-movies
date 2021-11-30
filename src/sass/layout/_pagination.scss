@@ -7,7 +7,6 @@
   padding-left: 20px;
   padding-right: 20px;
   border: none;
-  background-color: #fff;
 
   .tui-page-btn {
     width: 40px;
@@ -21,23 +20,64 @@
     line-height: 1.33;
     border-radius: 5px;
     border: none;
-
-    //     color: #000000;
   }
 
   .tui-first,
   .tui-last {
     display: none;
+
+    @include for-tablet {
+      display: block;
+      background: $pagination-bg-colour;
+      border-radius: 5px;
+      border: none;
+      padding: 13px 10px 10px 13px;
+    }
   }
 
-  .tui-first-child.tui-is-selected {
-    border: none;
+  .tui-first {
+    margin-right: 10px;
+  }
+  .tui-last {
+    margin-left: 10px;
+  }
+
+  .tui-is-disabled .tui-ico-first {
+    background-position: -16px 0px;
+  }
+
+  .tui-ico-first {
+    display: none;
+
+    @include for-tablet {
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url(./../images/pagination/right.png) no-repeat;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+  }
+
+  .tui-ico-last {
+    display: none;
+
+    @include for-tablet {
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url(./../images/pagination/right.png) no-repeat;
+    }
+  }
+
+  .tui-first-child.tui-is-selected,
+  .tui-last-child.tui-is-selected {
+    border: $pagination-bg-colour-accent;
   }
 
   .tui-next,
   .tui-prev {
     padding: 12px;
-    background: #f7f7f7;
+    background: $pagination-bg-colour;
     border-radius: 5px;
     border: none;
   }
@@ -83,7 +123,7 @@
   .tui-is-selected:hover,
   & strong {
     color: #ffffff;
-    background: #ff6b08;
-    border-color: #ff6b08;
+    background: $pagination-bg-colour-accent;
+    border-color: $pagination-bg-colour-accent;
   }
 }

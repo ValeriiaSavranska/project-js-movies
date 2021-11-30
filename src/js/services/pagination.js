@@ -6,11 +6,6 @@ import { renderMovies } from '../partials-js/main-page';
 
 const container = document.getElementById('tui-pagination-container');
 
-// total_results: 20000; //movies.total_results - totalItems
-//results: (20); // movies.results.length - itemsPerPage
-// total_pages: 1000; // movies.total_pages - visiblePages
-//page: 1; // movies.page - page
-
 //   template: {
 //     page: `<a href="#" class="tui-page-btn">{{page}}</a>`,
 //     currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
