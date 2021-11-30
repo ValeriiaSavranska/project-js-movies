@@ -1,0 +1,89 @@
+.tui-pagination {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  background-color: #fff;
+
+  .tui-page-btn {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 13px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    border-radius: 5px;
+    border: none;
+
+    //     color: #000000;
+  }
+
+  .tui-first,
+  .tui-last {
+    display: none;
+  }
+
+  .tui-first-child.tui-is-selected {
+    border: none;
+  }
+
+  .tui-next,
+  .tui-prev {
+    padding: 12px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .tui-prev {
+    margin-right: 10px;
+  }
+
+  .tui-next {
+    margin-left: 10px;
+  }
+
+  .tui-ico-prev {
+    width: 16px;
+    height: 16px;
+    background: url(./../images/pagination/arrow-rigth.png) no-repeat 0 0;
+  }
+
+  .tui-is-disabled .tui-ico-prev {
+    background-position: 15px 0;
+  }
+
+  .tui-ico-next {
+    width: 16px;
+    height: 16px;
+    background: url(./../images/pagination/arrow-left.png) no-repeat 0 0;
+  }
+
+  .tui-prev-is-ellip,
+  .tui-next-is-ellip {
+    display: none;
+
+    @include for-tablet {
+      display: block;
+    }
+  }
+
+  .tui-ico-ellip {
+    margin-top: 6px;
+  }
+
+  .tui-is-selected,
+  .tui-is-selected:hover,
+  & strong {
+    color: #ffffff;
+    background: #ff6b08;
+    border-color: #ff6b08;
+  }
+}
