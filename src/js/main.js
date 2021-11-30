@@ -16,7 +16,7 @@ const hideSpinner = () => {
   setTimeout(() => {
     loader.classList.remove('loader-show');
     loader.classList.add('loader-hide');
-  }, 1000);
+  }, 800);
 };
 
 export { showSpinner, hideSpinner, handleBySpin };
