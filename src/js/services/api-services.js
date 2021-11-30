@@ -28,10 +28,9 @@ const getSearchMovie = async movieToSearch => {
 };
 
 const getMovieById = async movieId => {
-  return handleBySpin(async () => {
-    const response = await fetch(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}`);
-    return response.json();
-  });
+  const response = await fetch(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}`);
+  const data = await response.json();
+  return data;
 };
 
 export { getGenres, genres, getTrendingMovies, getSearchMovie, getMovieById };
