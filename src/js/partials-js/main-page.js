@@ -7,6 +7,7 @@ const galleryDiv = document.querySelector('.gallery');
 const headerNavTitle = document.querySelector('.header-nav__logo');
 const inputBtn = document.querySelector('.input__btn');
 const searchMovieForm = document.querySelector('#form');
+const linkHome = document.querySelector('.header-nav__list-item-link');
 console.log('searchMovieForm', searchMovieForm);
 
 const renderMovies = movies => {
@@ -27,6 +28,12 @@ headerNavTitle.addEventListener('click', e => {
     onPagination(movies.total_pages);
     renderMovies(movies);
   });
+});
+
+linkHome.addEventListener('click', e => {
+  e.preventDefault();
+  galleryDiv.innerHTML = '';
+  getTrendingMovies().then(movies => renderMovies(movies));
 });
 
 searchMovieForm.addEventListener('submit', onSearchMovie);
