@@ -31,4 +31,4 @@ const o=document.querySelector("#up-button"),s=()=>{window.scrollY>200?o.classLi
 },{"./api-services":"gRzz","../markup/markup-modal":"hJ2e"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/main"),require("./js/partials-js/header"),require("./js/partials-js/my-library"),require("./js/partials-js/main-page"),require("./js/partials-js/footer"),require("./js/partials-js/darc-them"),require("./js/partials-js/up_btn"),require("./js/services/api-services"),require("./js/services/renderModal");
 },{"./sass/main.scss":"clu1","./js/main":"d6sW","./js/partials-js/header":"MZ0P","./js/partials-js/my-library":"zjDh","./js/partials-js/main-page":"zd8N","./js/partials-js/footer":"wOMy","./js/partials-js/darc-them":"hGEH","./js/partials-js/up_btn":"DNtV","./js/services/api-services":"gRzz","./js/services/renderModal":"peed"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-js-movies/src.97be9e11.js.map
+//# sourceMappingURL=/project-js-movies/src.24b4259c.js.map
