@@ -17,7 +17,6 @@ const changePage = e => {
     libraryPage.classList.remove('current');
     homePage.classList.add('current');
     header.classList.remove('header__main--library-bcg');
-    console.log('ok');
   }
 
   if (e.target === libraryPage) {
