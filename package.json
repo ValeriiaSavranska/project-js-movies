@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "darkmode-js": "^1.5.7",
     "notiflix": "^3.2.2"
   }
 }
