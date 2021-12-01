@@ -1,5 +1,6 @@
 
 .backdrop1 {
+  overflow: auto;
   z-index: 2;
   position: fixed;
   left: 0;
@@ -8,55 +9,87 @@
   height: 100%;
   background-color: rgba(33, 33, 33, 0.3);
   backdrop-filter: blur(2px);
+  @include for-tablet {
+    overflow: hidden;
+  }
 }
 
 .modal_team1 {
-  
-    display: block; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    //padding-top: 100px; /* Location of the box */
+ 
+    display: block; 
+    position: fixed; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    //height: 100%; /* Full height */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
 }
-
+.no-scroll {
+  overflow: hidden;
+}
 
 .modal-content {
 
-    top: 25%;
+    top: 3%;
     position: relative;
     background-color: #E1BEE7;
     margin: auto;
     padding: 0;
     border: 5px solid #7B1FA2;
     border-radius: 10px;
-    width: 50%;
+    //width: 50%;
+     width: 300px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
+    // -webkit-animation-name: animatetop;
+    // -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s;
+    animation-duration: 1.5s;
+    @include for-tablet {
+    width: 618px;
+  }
+   @include for-desktop {
+    width: 620px;
+  }
 }
 
 
+// @-webkit-keyframes animatetop {
+//     from {top:-300px; opacity:0} 
+//     to {top:0; opacity:1}
+// }
+
+// @keyframes animatetop {
+//     from {top:-300px; opacity:0}
+//     to {top:0; opacity:1}
+// }
 @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+ 0% {
+   background-color: red;
+   opacity: 1.0;
+   -webkit-transform: scale(1.0) rotate(0deg);
+ }
+ 33% {
+   background-color: blue;
+   opacity: 0.75;
+   -webkit-transform: scale(1.5) rotate(-15deg);
+ }
+ 67% {
+   background-color: green;
+   opacity: 0.5;
+   -webkit-transform: scale(1.5) rotate(15deg);
+ }
+ 100% {
+   background-color: red;
+   opacity: 1.0;
+   -webkit-transform: scale(1.0) rotate(0deg);
+ }
 }
 
 
 .close {
     color: white;
     float: right;
-    font-size: 28px;
+    font-size: 45px;
     font-weight: bold;
 }
 
@@ -73,14 +106,54 @@
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
 
 
 
-.dont-scroll {
-  overflow: hidden;
+
+
+
+.modal-body {
+  min-width: 280px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  justify-content: center;
+  gap: 20px;
+
+  @include for-tablet {
+    min-width: 610px;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 30px;
+  }
+  @include for-desktop {
+    min-width: 610;
+  }
 }
 
-.modal-body__item{
-
+.img-team{
+      border-radius: 5px;
+          height: 200px;
+          object-fit: cover;
 }
+ .pos-team{
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.14;
+    color: #ff6b01;
+ }
+ .name-team{
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.33;
+ 
+ }
+ .our-team{
+   text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.33;
+ }

@@ -10,14 +10,10 @@ import './js/partials-js/darc-them';
 import './js/partials-js/up_btn';
 
 import './js/services/api-services';
-<<<<<<< Updated upstream
 import './js/services/pagination';
-
 import './sass/main.scss';
-
-=======
 import './js/partials-js/modal-team';
->>>>>>> Stashed changes
+
 // import './js/markup/'
 
 import './js/services/renderModal';
