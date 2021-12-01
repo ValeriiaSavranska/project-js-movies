@@ -2,7 +2,7 @@ import { genres } from '../services/api-services';
 
 export default function createMarkup(movies) {
   const markup = movies.results.map(
-    ({ id, poster_path, backdrop_pathL, genre_ids, release_date, title, vote_average }) => {
+    ({ id, poster_path, backdrop_pathL, genre_ids, release_date, title }) => {
       let arrGenre = genre_ids.map(id => genres.find(genre => genre.id === id).name);
       let img = `https://image.tmdb.org/t/p/w300${poster_path}`;
       if (arrGenre.length > 3) {
@@ -20,8 +20,7 @@ export default function createMarkup(movies) {
         <div class="card-info">
             <h2 class="card-info__title">${title}</h2>
             <ul class="card-info__text">
-                <li class="link-genre">${arrGenre.join(', ')} | ${year.getFullYear()} </li>
-                <li class="card-info__vote">${vote_average}</li>
+                <li class="link-genre"><p>${arrGenre.join(', ')} | ${year.getFullYear()} </p></li>
             </ul>
         </div>
         </li>`;

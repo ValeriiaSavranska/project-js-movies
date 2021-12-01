@@ -14,11 +14,13 @@ const renderMovies = movies => {
   const markup = createMarkup(movies);
   galleryDiv.innerHTML = markup;
 };
+
 getGenres()
   .then(getTrendingMovies)
   .then(movies => {
     onPagination(movies.total_pages);
     renderMovies(movies);
+  });
 
 headerNavTitle.addEventListener('click', e => {
   e.preventDefault();
