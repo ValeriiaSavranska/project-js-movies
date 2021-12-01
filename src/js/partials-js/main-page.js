@@ -19,6 +19,7 @@ getGenres()
   .then(movies => {
     onPagination(movies.total_pages);
     renderMovies(movies);
+  });
 
 headerNavTitle.addEventListener('click', e => {
   e.preventDefault();
