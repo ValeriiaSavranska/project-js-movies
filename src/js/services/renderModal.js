@@ -17,6 +17,10 @@ function getOpenModal(e) {
   getMovieById(id).then(movie => {
     const markup = markupModal(movie);
     divForModal.insertAdjacentHTML('beforeend', markup);
+
+    const modalRef = document.querySelector('.modal');
+    modalRef.classList.add('show-modal');
+
     const backdropRef = document.querySelector(`div[data-action="${id}"]`);
 
     getDataForLibrary(id);

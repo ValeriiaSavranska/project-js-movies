@@ -1,3 +1,6 @@
+import notFoundImg from '../../images/image-not-found.jpg';
+import iconTrailer from '../../images/icons.svg';
+
 export default function markupModal({
   poster_path,
   id,
@@ -8,6 +11,7 @@ export default function markupModal({
   genres,
   overview,
 }) {
+  let img = `https://image.tmdb.org/t/p/w300${poster_path}`;
   const markup = `
     <div class="backdrop" data-action="${id}">
 
@@ -15,7 +19,9 @@ export default function markupModal({
                 <button class="modal__btn-colse"  >
                     <span class="modal__icon-close"></span>
                 </button>
-                <img class="modal__img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title} poster">
+                <img class="modal__img" src="${
+                  !poster_path ? notFoundImg : img
+                }" alt="${title} poster">
 
                 <div class="modal__thumb-box">
                     <h2 class="modal__title">${title}</h2>
@@ -61,10 +67,16 @@ export default function markupModal({
                     <button class="modal__btn modal__text--uppercase visually-hidden modal__btn-active" type="button" data-btn="remove-from-whatched">remove from watched</button>
                     <button class="modal__btn modal__text--uppercase" type="button" data-btn="add-to-queue">add to
                         queue</button>
+<<<<<<< HEAD
                     <button class="modal__btn modal__text--uppercase visually-hidden modal__btn-active" type="button" data-btn="remove-from-queue">remove from queue</button>
                     </div>
                     
                     <button class="modal__btn modal__text--uppercase" type="button" data-btn="trailerdBtn">play trayler</button>
+=======
+                    <button class="modal__text--uppercase btn-trailer" type="button" data-btn="trailerdBtn">
+                    <svg><use href="${iconTrailer}#icon-trailer"></use></svg>
+                    </button>
+>>>>>>> main
                 </div>
 
 
