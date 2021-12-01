@@ -34,4 +34,10 @@ const getMovieById = async movieId => {
   });
 };
 
-export { getGenres, genres, getTrendingMovies, getSearchMovie, getMovieById };
+const getTrailer = async movieId => {
+  return handleBySpin(async () => {
+    const response = await fetch(`${BASE_URL}movie/${movieId}/videos?api_key=${API_KEY}`);
+    return response.json();
+  });
+};
+export { getGenres, genres, getTrendingMovies, getSearchMovie, getMovieById, getTrailer };

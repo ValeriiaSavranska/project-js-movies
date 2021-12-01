@@ -16,7 +16,6 @@ getGenres()
   .then(getTrendingMovies)
   .then(movies => renderMovies(movies));
 
-
 headerNavTitle.addEventListener('click', e => {
   e.preventDefault();
   galleryDiv.innerHTML = '';
@@ -29,7 +28,7 @@ function onSearchMovie(e) {
   e.preventDefault();
   galleryDiv.innerHTML = '';
   const inputText = e.target.search.value;
-  console.log('inputText', inputText);
+  // console.log('inputText', inputText);
   if (!inputText) {
     getTrendingMovies().then(movies => renderMovies(movies));
     return;
@@ -37,13 +36,13 @@ function onSearchMovie(e) {
 
   getSearchMovie(inputText)
     .then(movies => {
-      console.log('onSearchMovie ~ movies', movies);
+      // console.log('onSearchMovie ~ movies', movies);
       // if(movies)
       if (movies.results.length === 0) {
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
       }
       renderMovies(movies);
-      console.log('onSearchMovie ~ movies', movies);
+      // console.log('onSearchMovie ~ movies', movies);
     })
     .catch(err => console.log(err.message));
 }

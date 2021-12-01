@@ -59,6 +59,7 @@ export default function markupModal({
                         Watched</button>
                     <button class="modal__btn modal__text--uppercase" type="button" data-btn="queue">add to
                         queue</button>
+                    <button class="modal__btn modal__text--uppercase" type="button" data-btn="trailerdBtn">play trayler</button>
                 </div>
 
 
