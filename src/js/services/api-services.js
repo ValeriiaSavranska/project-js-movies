@@ -2,7 +2,7 @@ import { handleBySpin } from '../main';
 
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '61e2735d71b7e3847b723f570f360fd1';
-// let page = 1;
+
 let genres = [];
 
 const getGenres = async () => {
@@ -11,18 +11,20 @@ const getGenres = async () => {
   genres = data.genres;
 };
 
-const getTrendingMovies = async () => {
+const getTrendingMovies = async (page = 1) => {
   return handleBySpin(async () => {
-    const response = await fetch(`${BASE_URL}trending/movie/week?api_key=${API_KEY}`);
+    const response = await fetch(`${BASE_URL}trending/movie/week?api_key=${API_KEY}&page=${page}`);
+
     return response.json();
   });
 };
 
-const getSearchMovie = async movieToSearch => {
+const getSearchMovie = async (movieToSearch, page = 1) => {
   return handleBySpin(async () => {
     const response = await fetch(
-      `${BASE_URL}search/movie?api_key=${API_KEY}&query=${movieToSearch}`,
+      `${BASE_URL}search/movie?api_key=${API_KEY}&query=${movieToSearch}&page=${page}`,
     );
+
     return response.json();
   });
 };
@@ -33,4 +35,10 @@ const getMovieById = async movieId => {
   return data;
 };
 
-export { getGenres, genres, getTrendingMovies, getSearchMovie, getMovieById };
+const getTrailer = async movieId => {
+  return handleBySpin(async () => {
+    const response = await fetch(`${BASE_URL}movie/${movieId}/videos?api_key=${API_KEY}`);
+    return response.json();
+  });
+};
+export { getGenres, genres, getTrendingMovies, getSearchMovie, getMovieById, getTrailer };
