@@ -12,13 +12,14 @@
 
 .modal {
   opacity: 0;
-  transition: opacity 2s;
+
+  transition: opacity 250ms $timing-function-main, transform 550ms $timing-function-main;
 
   padding: 48px 20px 40px 20px;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.8);
   background-color: $main-bg-text-color;
   width: 280px;
 
@@ -195,8 +196,9 @@ button {
   overflow: hidden;
 }
 
-.show-modal.modal {
+.modal.show-modal {
   opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .btn-trailer {
