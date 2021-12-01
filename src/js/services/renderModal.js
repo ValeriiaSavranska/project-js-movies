@@ -1,6 +1,8 @@
+import * as basicLightbox from 'basiclightbox';
 import { getMovieById } from './api-services';
 import markupModal from '../markup/markup-modal';
 import getDataForLibrary from '../partials-js/modale-storage-btns';
+import playTrailer from '../partials-js/trailer';
 
 const galleryRef = document.querySelector('.gallery');
 const bodyRef = document.querySelector('body');
@@ -18,6 +20,7 @@ function getOpenModal(e) {
     const backdropRef = document.querySelector(`div[data-action="${id}"]`);
 
     getDataForLibrary(id);
+    playTrailer(id);
 
     bodyRef.classList.add('dont-scroll');
 

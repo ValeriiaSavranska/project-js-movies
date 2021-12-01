@@ -64,6 +64,7 @@ export default function markupModal({
                     <button class="modal__btn modal__text--uppercase visually-hidden modal__btn-active" type="button" data-btn="remove-from-queue">remove from queue</button>
                     </div>
                     
+                    <button class="modal__btn modal__text--uppercase" type="button" data-btn="trailerdBtn">play trayler</button>
                 </div>
 
 
