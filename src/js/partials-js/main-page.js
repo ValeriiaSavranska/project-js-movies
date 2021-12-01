@@ -14,6 +14,7 @@ const renderMovies = movies => {
   const markup = createMarkup(movies);
   galleryDiv.innerHTML = markup;
 };
+
 getGenres()
   .then(getTrendingMovies)
   .then(movies => {
@@ -45,7 +46,7 @@ function onSearchMovie(e) {
   e.preventDefault();
   galleryDiv.innerHTML = '';
   const inputText = e.target.search.value;
-  console.log('inputText', inputText);
+  // console.log('inputText', inputText);
   if (!inputText) {
     getTrendingMovies().then(movies => {
       onPagination(movies.total_pages);
@@ -56,7 +57,7 @@ function onSearchMovie(e) {
 
   getSearchMovie(inputText)
     .then(movies => {
-      console.log('onSearchMovie ~ movies', movies);
+      // console.log('onSearchMovie ~ movies', movies);
       // if(movies)
       if (movies.results.length === 0) {
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
@@ -64,7 +65,7 @@ function onSearchMovie(e) {
 
       onPagination(movies.total_pages, inputText);
       renderMovies(movies);
-      console.log('onSearchMovie ~ movies', movies);
+      // console.log('onSearchMovie ~ movies', movies);
     })
     .catch(err => console.log(err.message));
 }

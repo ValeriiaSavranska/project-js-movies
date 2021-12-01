@@ -30,6 +30,7 @@
     "darkmode-js": "^1.5.7",
     "notiflix": "^3.2.2",
     "simplelightbox": "^2.10.1",
+    "basiclightbox": "^5.0.4",
     "tui-pagination": "^3.4.1"
   }
 }
