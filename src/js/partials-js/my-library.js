@@ -43,6 +43,8 @@ const changeLibraryPage = e => {
 
   if (watchedBtn.dataset.button === 'watched' && e.target === watchedBtn) {
     showActiveBtn();
+    const storage = checkStorage();
+    renderLiblary(storage.watchedFilms);
 
     if (!localStorage.getItem('Watched') || storage.watchedFilms.length === 0) {
       return console.log('NO FILM ADDED YET');
@@ -53,6 +55,8 @@ const changeLibraryPage = e => {
 
   if (queueBtn.dataset.button === 'queue' && e.target === queueBtn) {
     showActiveBtn(watchedBtn, queueBtn);
+    const storage = checkStorage();
+    renderLiblary(storage.queueFilms);
 
     if (!localStorage.getItem('Queue') || storage.queueFilms.length === 0) {
       return console.log('NO FILM ADDED YET');
