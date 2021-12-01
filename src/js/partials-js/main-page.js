@@ -61,8 +61,7 @@ function onSearchMovie(e) {
       // console.log('onSearchMovie ~ movies', movies);
       // if(movies)
       if (movies.results.length === 0) {
-        galleryDiv.innerHTML = marcup404();
-
+        galleryDiv.innerHTML = marcup404('Movies not found');
         startAnimation();
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
         return;

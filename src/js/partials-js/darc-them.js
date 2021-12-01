@@ -7,7 +7,7 @@ export default class Darkmode {
     }
 
     const defaultOptions = {
-      bottom: '11px',
+      top: '11px',
       right: '11px',
       left: 'unset',
       time: '0.2s',
@@ -36,7 +36,7 @@ export default class Darkmode {
         height: 4rem;
         border-radius: 50%;
         right: ${options.right};
-        bottom: ${options.bottom};
+        top: ${options.top};
         left: ${options.left};
       }
 
@@ -68,7 +68,7 @@ export default class Darkmode {
         border-radius: 50%;
         border:none;
         right: ${options.right};
-        bottom: ${options.bottom};
+        top: ${options.top};
         left: ${options.left};
         cursor: pointer;
         transition: all 0.5s ease;
@@ -88,7 +88,7 @@ export default class Darkmode {
 
       .darkmode-background {
         background: ${options.backgroundColor};
-        position: fixed;
+        position: absolute;
         pointer-events: none;
         z-index: -10;
         width: 100%;
