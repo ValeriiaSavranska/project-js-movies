@@ -19,7 +19,8 @@ function getOpenModal(e) {
     divForModal.insertAdjacentHTML('beforeend', markup);
 
     const modalRef = document.querySelector('.modal');
-    modalRef.classList.add('show-modal');
+
+    setTimeout(() => modalRef.classList.add('show-modal'), 50);
 
     const backdropRef = document.querySelector(`div[data-action="${id}"]`);
 
