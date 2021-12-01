@@ -1,11 +1,12 @@
 import Notiflix from 'notiflix';
 import { getGenres, getTrendingMovies, getSearchMovie } from '../services/api-services';
 import createMarkup from '../markup/markup-gallery';
+import { marcup404, startAnimation } from '../markup/markup-404';
 import { onPagination } from '../services/pagination';
 
 const galleryDiv = document.querySelector('.gallery');
 const headerNavTitle = document.querySelector('.header-nav__logo');
-const inputBtn = document.querySelector('.input__btn');
+// const inputBtn = document.querySelector('.input__btn');
 const searchMovieForm = document.querySelector('#form');
 const linkHome = document.querySelector('.header-nav__list-item-link');
 console.log('searchMovieForm', searchMovieForm);
@@ -60,7 +61,10 @@ function onSearchMovie(e) {
       // console.log('onSearchMovie ~ movies', movies);
       // if(movies)
       if (movies.results.length === 0) {
+        galleryDiv.innerHTML = marcup404('Movies not found');
+        startAnimation();
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
+        return;
       }
 
       onPagination(movies.total_pages, inputText);
@@ -80,4 +84,4 @@ Notiflix.Notify.init({
   clickToClose: true,
 });
 
-export { renderMovies };
+export { renderMovies, galleryDiv };
