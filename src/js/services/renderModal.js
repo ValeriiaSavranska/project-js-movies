@@ -1,19 +1,25 @@
+import * as basicLightbox from 'basiclightbox';
 import { getMovieById } from './api-services';
 import markupModal from '../markup/markup-modal';
+import playTrailer from '../partials-js/trailer';
 
 const galleryRef = document.querySelector('.gallery');
 const bodyRef = document.querySelector('body');
 const divForModal = document.querySelector('.for-modal');
 
+let id = null;
+
 function getOpenModal(e) {
   if (e.target === e.currentTarget) return false;
-  const id = e.target.closest('li').dataset.id;
+  id = e.target.closest('li').dataset.id;
+  console.log('getOpenModal ~ id', id);
 
   getMovieById(id).then(movie => {
     const markup = markupModal(movie);
     divForModal.insertAdjacentHTML('beforeend', markup);
-    const backdropRef = document.querySelector(`div[data-action="${id}"]`);
 
+    const backdropRef = document.querySelector(`div[data-action="${id}"]`);
+    playTrailer(id);
     bodyRef.classList.add('dont-scroll');
 
     function removeBackdrop() {
@@ -48,3 +54,4 @@ function getOpenModal(e) {
 }
 
 galleryRef.addEventListener('click', getOpenModal);
+export { id };
