@@ -70,12 +70,26 @@ function createModalTeam() {
  <p class="name-team">Vitalii Tymiv</p>
   <p class="pos-team">Developer</p>
   </li>
+  <li class="modal-body__item">
+  <a class="modal-body__item" href="${imglog}">
+    <img src="${imglog}"  class="img-team team-logo" alt="Valentyn Onyshchenko" width="150"/>
+  </a>  
+ <p class="name-team"></p>
+  <p class="pos-team"></p>
+  </li>
   <li class="modal-body__item team-leader">
   <a class="modal-body__item" href="${imgValentyn}">
     <img src="${imgValentyn}"  class="img-team" alt="Valentyn Onyshchenko" width="150"/>
   </a>  
  <p class="name-team">Valentyn Onyshchenko</p>
   <p class="pos-team">Developer</p>
+  </li>
+  <li class="modal-body__item">
+  <a class="modal-body__item" href="${imglog}">
+    <img src="${imglog}"  class="img-team team-logo" alt="Valentyn Onyshchenko" width="150"/>
+  </a>  
+ <p class="name-team"></p>
+  <p class="pos-team"></p>
   </li>
   
   </ul>
