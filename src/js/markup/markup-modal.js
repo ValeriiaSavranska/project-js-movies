@@ -67,16 +67,13 @@ export default function markupModal({
                     <button class="modal__btn modal__text--uppercase visually-hidden modal__btn-active" type="button" data-btn="remove-from-whatched">remove from watched</button>
                     <button class="modal__btn modal__text--uppercase" type="button" data-btn="add-to-queue">add to
                         queue</button>
-<<<<<<< HEAD
                     <button class="modal__btn modal__text--uppercase visually-hidden modal__btn-active" type="button" data-btn="remove-from-queue">remove from queue</button>
                     </div>
                     
-                    <button class="modal__btn modal__text--uppercase" type="button" data-btn="trailerdBtn">play trayler</button>
-=======
+                    
                     <button class="modal__text--uppercase btn-trailer" type="button" data-btn="trailerdBtn">
                     <svg><use href="${iconTrailer}#icon-trailer"></use></svg>
                     </button>
->>>>>>> main
                 </div>
 
 
