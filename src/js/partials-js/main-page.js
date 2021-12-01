@@ -1,11 +1,13 @@
 import Notiflix from 'notiflix';
 import { getGenres, getTrendingMovies, getSearchMovie } from '../services/api-services';
 import createMarkup from '../markup/markup-gallery';
+import { onPagination } from '../services/pagination';
 
 const galleryDiv = document.querySelector('.gallery');
 const headerNavTitle = document.querySelector('.header-nav__logo');
 const inputBtn = document.querySelector('.input__btn');
 const searchMovieForm = document.querySelector('#form');
+const linkHome = document.querySelector('.header-nav__list-item-link');
 console.log('searchMovieForm', searchMovieForm);
 
 const renderMovies = movies => {
@@ -14,12 +16,26 @@ const renderMovies = movies => {
 };
 getGenres()
   .then(getTrendingMovies)
-  .then(movies => renderMovies(movies));
+  .then(movies => {
+    onPagination(movies.total_pages);
+    renderMovies(movies);
 
 headerNavTitle.addEventListener('click', e => {
   e.preventDefault();
   galleryDiv.innerHTML = '';
-  getTrendingMovies().then(movies => renderMovies(movies));
+  getTrendingMovies().then(movies => {
+    onPagination(movies.total_pages);
+    renderMovies(movies);
+  });
+});
+
+linkHome.addEventListener('click', e => {
+  e.preventDefault();
+  galleryDiv.innerHTML = '';
+  getTrendingMovies().then(movies => {
+    onPagination(movies.total_pages);
+    renderMovies(movies);
+  });
 });
 
 searchMovieForm.addEventListener('submit', onSearchMovie);
@@ -30,7 +46,10 @@ function onSearchMovie(e) {
   const inputText = e.target.search.value;
   // console.log('inputText', inputText);
   if (!inputText) {
-    getTrendingMovies().then(movies => renderMovies(movies));
+    getTrendingMovies().then(movies => {
+      onPagination(movies.total_pages);
+      renderMovies(movies);
+    });
     return;
   }
 
@@ -41,6 +60,8 @@ function onSearchMovie(e) {
       if (movies.results.length === 0) {
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
       }
+
+      onPagination(movies.total_pages, inputText);
       renderMovies(movies);
       // console.log('onSearchMovie ~ movies', movies);
     })
@@ -56,3 +77,5 @@ Notiflix.Notify.init({
   position: 'center-top',
   clickToClose: true,
 });
+
+export { renderMovies };
