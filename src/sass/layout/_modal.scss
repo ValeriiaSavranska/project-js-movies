@@ -12,7 +12,7 @@
 
 .modal {
   opacity: 0;
-
+  mix-blend-mode: difference;
   transition: opacity 250ms $timing-function-main, transform 550ms $timing-function-main;
 
   padding: 48px 20px 40px 20px;

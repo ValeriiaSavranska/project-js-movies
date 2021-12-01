@@ -96,9 +96,11 @@ export default class Darkmode {
         top: 0;
         left: 0;
       }
-        header, .darkmode-ignore {
-        isolation: isolate;
-        
+      .plug-list, .darkmode-ignore {
+      isolation: isolate; 
+      }
+      header, .darkmode-ignore {
+      isolation: isolate; 
       }
       img, .darkmode-ignore {
         isolation: isolate;
