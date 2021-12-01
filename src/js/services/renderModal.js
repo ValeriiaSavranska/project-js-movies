@@ -1,18 +1,23 @@
 import { getMovieById } from './api-services';
 import markupModal from '../markup/markup-modal';
+import getDataForLibrary from '../partials-js/modale-storage-btns';
 
 const galleryRef = document.querySelector('.gallery');
 const bodyRef = document.querySelector('body');
 const divForModal = document.querySelector('.for-modal');
 
+let id = null;
+
 function getOpenModal(e) {
   if (e.target === e.currentTarget) return false;
-  const id = e.target.closest('li').dataset.id;
+  id = e.target.closest('li').dataset.id;
 
   getMovieById(id).then(movie => {
     const markup = markupModal(movie);
     divForModal.insertAdjacentHTML('beforeend', markup);
     const backdropRef = document.querySelector(`div[data-action="${id}"]`);
+
+    getDataForLibrary(id);
 
     bodyRef.classList.add('dont-scroll');
 
@@ -48,3 +53,5 @@ function getOpenModal(e) {
 }
 
 galleryRef.addEventListener('click', getOpenModal);
+
+export default id;

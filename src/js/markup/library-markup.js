@@ -1,15 +1,12 @@
-import { genres } from '../services/api-services';
-
 export default function createMarkup(movies) {
-  const markup = movies.results.map(
-    ({ id, poster_path, backdrop_path, genre_ids, release_date, title }) => {
-      let arrGenre = genre_ids.map(id => genres.find(genre => genre.id === id).name);
-      let img = `https://image.tmdb.org/t/p/w300${poster_path}`;
-      if (arrGenre.length > 3) {
-        arrGenre.splice(2, arrGenre.length - 2, 'Other');
-      }
-      const year = new Date(release_date);
-      return `
+  const markup = movies.map(({ id, poster_path, backdrop_path, genres, release_date, title }) => {
+    let arrGenre = genres.map(genre => genre.name);
+    let img = `https://image.tmdb.org/t/p/w300${poster_path}`;
+    if (arrGenre.length > 3) {
+      arrGenre.splice(2, arrGenre.length - 2, 'Other');
+    }
+    const year = new Date(release_date);
+    return `
         <li class="card" data-id="${id}">
         <img class="card-img" src="${
           !poster_path
@@ -23,7 +20,6 @@ export default function createMarkup(movies) {
             </ul>
         </div>
         </li>`;
-    },
-  );
+  });
   return markup.join('');
 }

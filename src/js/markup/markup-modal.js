@@ -13,9 +13,9 @@ export default function markupModal({
 
             <div class="modal">
                 <button class="modal__btn-colse"  >
-                    <div class="modal__icon-close"></div>
+                    <span class="modal__icon-close"></span>
                 </button>
-                <img class="modal__img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="">
+                <img class="modal__img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title} poster">
 
                 <div class="modal__thumb-box">
                     <h2 class="modal__title">${title}</h2>
@@ -54,11 +54,16 @@ export default function markupModal({
                     <p class="modal__about">                    
                         ${overview}
                     </p>
-
-                    <button class="modal__btn modal__text--uppercase" type="button" data-btn="whatched">add to
+                    
+                    <div class="modal__btn-wrapper">
+                    <button class="modal__btn modal__text--uppercase" type="button" data-btn="add-to-whatched">add to
                         Watched</button>
-                    <button class="modal__btn modal__text--uppercase" type="button" data-btn="queue">add to
+                    <button class="modal__btn modal__text--uppercase visually-hidden modal__btn-active" type="button" data-btn="remove-from-whatched">remove from watched</button>
+                    <button class="modal__btn modal__text--uppercase" type="button" data-btn="add-to-queue">add to
                         queue</button>
+                    <button class="modal__btn modal__text--uppercase visually-hidden modal__btn-active" type="button" data-btn="remove-from-queue">remove from queue</button>
+                    </div>
+                    
                 </div>
 
 
