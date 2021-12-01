@@ -1,6 +1,7 @@
 import Notiflix from 'notiflix';
 import { getGenres, getTrendingMovies, getSearchMovie } from '../services/api-services';
 import createMarkup from '../markup/markup-gallery';
+import { marcup404, startAnimation } from '../markup/markup-404';
 import { onPagination } from '../services/pagination';
 
 const galleryDiv = document.querySelector('.gallery');
@@ -54,7 +55,10 @@ function onSearchMovie(e) {
   getSearchMovie(inputText)
     .then(movies => {
       if (movies.results.length === 0) {
+        galleryDiv.innerHTML = marcup404('Movies not found');
+        startAnimation();
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
+        return;
       }
       onPagination(movies.total_pages, inputText);
       renderMovies(movies);
@@ -72,4 +76,4 @@ Notiflix.Notify.init({
   clickToClose: true,
 });
 
-export { renderMovies };
+export { renderMovies, galleryDiv };

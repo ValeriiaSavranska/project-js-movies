@@ -1,6 +1,6 @@
 export default function createMarkup(movies) {
   const markup = movies.map(
-    ({ id, poster_path, backdrop_path, genres, release_date, title, vote_average }) => {
+    ({ id, poster_path, genres, release_date, title, vote_average }) => {
       let arrGenre = genres.map(genre => genre.name);
       let img = `https://image.tmdb.org/t/p/w300${poster_path}`;
       if (arrGenre.length > 3) {
