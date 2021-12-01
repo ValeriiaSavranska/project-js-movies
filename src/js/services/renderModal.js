@@ -14,6 +14,9 @@ function getOpenModal(e) {
     divForModal.insertAdjacentHTML('beforeend', markup);
     const backdropRef = document.querySelector(`div[data-action="${id}"]`);
 
+    const modalRef = document.querySelector('.modal');
+    modalRef.classList.add('show-modal');
+
     bodyRef.classList.add('dont-scroll');
 
     function removeBackdrop() {

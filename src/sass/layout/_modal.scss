@@ -9,6 +9,9 @@
 }
 
 .modal {
+  opacity: 0;
+  transition: opacity 2s;
+
   padding: 48px 20px 40px 20px;
   position: absolute;
   left: 50%;
@@ -16,7 +19,12 @@
   transform: translate(-50%, -50%);
   background-color: $main-bg-text-color;
   width: 280px;
-  max-height: 568px;
+  // max-height: 568px;
+  // overflow: scroll;
+
+  // &:hover {
+  //   opacity: 0;
+  // }
 
   @media screen and (min-width: 768px) {
     padding-top: 42px;
@@ -176,4 +184,8 @@ button {
 
 .dont-scroll {
   overflow: hidden;
+}
+
+.show-modal.modal {
+  opacity: 1;
 }
