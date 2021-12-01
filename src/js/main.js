@@ -19,6 +19,6 @@ const hideSpinner = () => {
   }, 800);
 };
 
-export { showSpinner, hideSpinner, handleBySpin };
+export { handleBySpin };
 
 // import { handleBySpin } from '../main';
