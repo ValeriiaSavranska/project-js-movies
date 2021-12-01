@@ -10,6 +10,7 @@ const homePageWrapper = document.querySelector('.search-film__wrap');
 const libraryPageWrapper = document.querySelector('.my-library__wrap');
 const navLogo = document.querySelector('#nav-logo');
 const headerNavBtns = document.querySelector('.header-nav__list');
+const container = document.getElementById('tui-pagination-container');
 
 const changePage = e => {
   e.preventDefault();
@@ -22,6 +23,7 @@ const changePage = e => {
     libraryPage.classList.remove('current');
     homePage.classList.add('current');
     header.classList.remove('header__main--library-bcg');
+    container.classList.remove('visually-hidden');
   }
 
   if (e.target === libraryPage) {
@@ -31,6 +33,7 @@ const changePage = e => {
       libraryPage.classList.add('current');
       homePage.classList.remove('current');
       header.classList.add('header__main--library-bcg');
+      container.classList.add('visually-hidden');
     });
   }
 };
