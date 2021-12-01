@@ -18,14 +18,11 @@ function getOpenModal(e) {
     const markup = markupModal(movie);
     divForModal.insertAdjacentHTML('beforeend', markup);
 
-<<<<<<< HEAD
     const modalRef = document.querySelector('.modal');
     modalRef.classList.add('show-modal');
 
-=======
     const backdropRef = document.querySelector(`div[data-action="${id}"]`);
     playTrailer(id);
->>>>>>> main
     bodyRef.classList.add('dont-scroll');
 
     function removeBackdrop() {

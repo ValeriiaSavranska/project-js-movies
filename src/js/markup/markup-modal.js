@@ -1,4 +1,6 @@
 import notFoundImg from '../../images/image-not-found.jpg';
+import iconTrailer from '../../images/icons.svg';
+
 export default function markupModal({
   poster_path,
   id,
@@ -61,7 +63,9 @@ export default function markupModal({
                         Watched</button>
                     <button class="modal__btn modal__text--uppercase" type="button" data-btn="queue">add to
                         queue</button>
-                    <button class="modal__btn modal__text--uppercase" type="button" data-btn="trailerdBtn">play trayler</button>
+                    <button class="modal__text--uppercase btn-trailer" type="button" data-btn="trailerdBtn">
+                    <svg><use href="${iconTrailer}#icon-trailer"></use></svg>
+                    </button>
                 </div>
 
 
