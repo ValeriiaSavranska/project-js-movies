@@ -44,7 +44,6 @@ const changeLibraryPage = e => {
   if (watchedBtn.dataset.button === 'watched' && e.target === watchedBtn) {
     showActiveBtn();
     const storage = checkStorage();
-    gallery.innerHTML = '';
     renderLiblary(storage.watchedFilms);
 
     if (!localStorage.getItem('Watched') || storage.watchedFilms.length === 0) {
@@ -57,7 +56,6 @@ const changeLibraryPage = e => {
   if (queueBtn.dataset.button === 'queue' && e.target === queueBtn) {
     showActiveBtn(watchedBtn, queueBtn);
     const storage = checkStorage();
-    gallery.innerHTML = '';
     renderLiblary(storage.queueFilms);
 
     if (!localStorage.getItem('Queue') || storage.queueFilms.length === 0) {
