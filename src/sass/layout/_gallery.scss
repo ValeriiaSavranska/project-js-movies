@@ -11,6 +11,8 @@
 // }
 
 .gallery {
+  justify-content: center;
+
   min-width: 280px;
   display: flex;
   flex-wrap: wrap;
@@ -46,6 +48,7 @@
   }
   width: 280px;
   height: 443px;
+  box-shadow: 1px 1px 5px 5px rgba(255, 255, 255, 0.5);
   @include for-tablet {
     width: 294px;
     height: 440px;
@@ -55,6 +58,7 @@
   }
 
   &-img {
+    box-shadow: 1px 1px 5px 5px rgb(255, 255, 255, 0.1);
     border-radius: 5px;
     width: 280px;
     height: 402px;
@@ -68,7 +72,7 @@
   }
   &-info {
     padding-top: 10px;
-    padding-left: 1px;
+    padding-left: 2px;
     &__title {
       font-size: 12px;
       font-weight: 500;
@@ -79,10 +83,22 @@
       }
     }
     &__text {
+      display: flex;
+      justify-content: space-between;
       font-size: 12px;
       font-weight: 500;
       line-height: 1.33;
       color: $accent-color;
+    }
+    &__vote {
+      position: relative;
+      bottom: 2px;
+      right: 2px;
+      padding-left: 8px;
+      padding-right: 8px;
+      border-radius: 50px;
+      color: $main-bg-text-color;
+      background-color: $accent-color;
     }
   }
 }
