@@ -35,6 +35,7 @@
 }
 
 .card {
+  cursor: pointer;
   &:hover,
   &:focus {
     box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.5);
@@ -84,16 +85,14 @@
     }
     &__text {
       display: flex;
-      justify-content: space-between;
+      align-items: center;
       font-size: 12px;
       font-weight: 500;
       line-height: 1.33;
       color: $accent-color;
     }
     &__vote {
-      position: relative;
-      bottom: 2px;
-      right: 2px;
+      margin-left: 10px;
       padding-left: 8px;
       padding-right: 8px;
       border-radius: 50px;

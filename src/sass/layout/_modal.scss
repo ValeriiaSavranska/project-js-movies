@@ -6,6 +6,8 @@
   height: 100%;
   background-color: rgba(33, 33, 33, 0.3);
   backdrop-filter: blur(2px);
+
+  z-index: 4;
 }
 
 .modal {
@@ -48,6 +50,7 @@
   }
 
   &__icon-close {
+    display: block;
     background-color: $secondary-text-colour;
     width: 14px;
     height: 1px;
@@ -166,8 +169,20 @@
     font-size: 12px;
     line-height: calc(16 / 12);
 
-    &:last-child {
-      margin-left: 14px;
+    &-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    &:not(:last-child) {
+      margin-right: 14px;
+    }
+
+    &-active {
+      background-color: $accent-color;
+      box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+      border-color: $accent-color;
+      color: $main-bg-text-color;
     }
   }
 }

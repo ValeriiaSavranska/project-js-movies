@@ -1,6 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import { getMovieById } from './api-services';
 import markupModal from '../markup/markup-modal';
+import getDataForLibrary from '../partials-js/modale-storage-btns';
 import playTrailer from '../partials-js/trailer';
 
 const galleryRef = document.querySelector('.gallery');
@@ -12,7 +13,6 @@ let id = null;
 function getOpenModal(e) {
   if (e.target === e.currentTarget) return false;
   id = e.target.closest('li').dataset.id;
-  console.log('getOpenModal ~ id', id);
 
   getMovieById(id).then(movie => {
     const markup = markupModal(movie);
@@ -22,7 +22,10 @@ function getOpenModal(e) {
     modalRef.classList.add('show-modal');
 
     const backdropRef = document.querySelector(`div[data-action="${id}"]`);
+
+    getDataForLibrary(id);
     playTrailer(id);
+
     bodyRef.classList.add('dont-scroll');
 
     function removeBackdrop() {
@@ -57,4 +60,5 @@ function getOpenModal(e) {
 }
 
 galleryRef.addEventListener('click', getOpenModal);
-export { id };
+
+export default id;
