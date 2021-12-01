@@ -13,8 +13,8 @@ import './js/partials-js/trailer';
 
 import './js/services/api-services';
 import './js/services/pagination';
-
 import './sass/main.scss';
+import './js/partials-js/modal-team';
 
 // import './js/markup/'
 
