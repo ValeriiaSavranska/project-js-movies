@@ -1,5 +1,5 @@
 import { genres } from '../services/api-services';
-
+import notFoundImg from '../../images/image-not-found.jpg';
 export default function createMarkup(movies) {
   const markup = movies.results.map(
     ({ id, poster_path, backdrop_pathL, genre_ids, release_date, title, vote_average }) => {
@@ -13,9 +13,7 @@ export default function createMarkup(movies) {
       return `
         <li class="card" data-id="${id}">
         <img class="card-img" src="${
-          !poster_path
-            ? 'https://images.squarespace-cdn.com/content/v1/51cdafc4e4b09eb676a64e68/1470175715831-NUJOMI6VW13ZNT1MI0VB/image-asset.jpeg?format=750w'
-            : img
+          !poster_path ? notFoundImg : img
         }" alt="${title} " loading="lazy" />
         <div class="card-info">
             <h2 class="card-info__title">${title}</h2>

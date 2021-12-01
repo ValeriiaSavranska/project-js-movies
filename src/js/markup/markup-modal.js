@@ -1,3 +1,4 @@
+import notFoundImg from '../../images/image-not-found.jpg';
 export default function markupModal({
   poster_path,
   id,
@@ -8,6 +9,7 @@ export default function markupModal({
   genres,
   overview,
 }) {
+  let img = `https://image.tmdb.org/t/p/w300${poster_path}`;
   const markup = `
     <div class="backdrop" data-action="${id}">
 
@@ -15,7 +17,7 @@ export default function markupModal({
                 <button class="modal__btn-colse"  >
                     <div class="modal__icon-close"></div>
                 </button>
-                <img class="modal__img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="">
+                <img class="modal__img" src="${!poster_path ? notFoundImg : img}" alt="">
 
                 <div class="modal__thumb-box">
                     <h2 class="modal__title">${title}</h2>
