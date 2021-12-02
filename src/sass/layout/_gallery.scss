@@ -51,18 +51,21 @@
   }
 
   &-img {
-    // анимация для карточки
-    animation: rotateY 1500ms alternate ease-in-out 250ms;
+    // // анимация для карточки-----------------------------------
+    &__anime {
+      animation: rotateY 1500ms alternate ease-in-out 250ms;
 
-    @keyframes rotateY {
-      0% {
-        transform: perspective(5000px) rotateY(180deg);
-      }
+      @keyframes rotateY {
+        0% {
+          transform: perspective(5000px) rotateY(180deg);
+        }
 
-      100% {
-        transform: perspective(5000px) rotateY(0deg);
+        100% {
+          transform: perspective(5000px) rotateY(0deg);
+        }
       }
     }
+    // -------------------------------------------------------------
 
     box-shadow: 1px 1px 5px 5px rgb(255, 255, 255, 0.1);
     border-radius: 5px;
