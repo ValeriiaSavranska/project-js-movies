@@ -1,6 +1,7 @@
 import { renderLiblary, showActiveBtn, checkStorage } from '../partials-js/my-library';
 import createMarkup from '../markup/library-markup';
 import { handleBySpin } from '../main';
+import { marcup404, startAnimation } from '../markup/markup-404';
 
 const gallery = document.querySelector('.gallery');
 const header = document.querySelector('#head');
@@ -43,6 +44,13 @@ libraryPage.addEventListener('click', e => {
   const storage = checkStorage();
 
   gallery.innerHTML = '';
+
+  if (!localStorage.getItem('Watched') || storage.watchedFilms.length === 0) {
+    gallery.innerHTML = marcup404('You not added movie yet');
+    startAnimation();
+    return;
+  }
+
   renderLiblary(storage.watchedFilms);
 });
 

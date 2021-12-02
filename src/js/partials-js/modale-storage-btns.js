@@ -1,5 +1,6 @@
 import { id } from '../services/renderModal';
 import { renderLiblary, checkStorage } from '../partials-js/my-library';
+import { marcup404, startAnimation } from '../markup/markup-404';
 
 const watchedBtn = document.querySelector('[data-button="watched"]');
 const queueBtn = document.querySelector('[data-button="queue"]');
@@ -73,6 +74,13 @@ const getDataForLibrary = id => {
       ) {
         const storage = checkStorage();
         gallery.innerHTML = '';
+
+        if (!localStorage.getItem('Watched') || storage.watchedFilms.length === 0) {
+          gallery.innerHTML = marcup404('You not added movie yet');
+          startAnimation();
+          return;
+        }
+
         renderLiblary(storage.watchedFilms);
       }
     }
@@ -104,6 +112,13 @@ const getDataForLibrary = id => {
       ) {
         const storage = checkStorage();
         gallery.innerHTML = '';
+
+        if (!localStorage.getItem('Queue') || storage.queueFilms.length === 0) {
+          gallery.innerHTML = marcup404('You not added movie yet');
+          startAnimation();
+          return;
+        }
+
         renderLiblary(storage.queueFilms);
       }
     }
