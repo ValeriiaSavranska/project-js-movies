@@ -32,8 +32,8 @@ export default class Darkmode {
       }
 
       .darkmode-layer--button {
-        width: 4rem;
-        height: 4rem;
+        width: 0rem;
+        height: 0rem;
         border-radius: 50%;
         right: ${options.right};
         top: ${options.top};
@@ -64,7 +64,7 @@ export default class Darkmode {
         height: 4rem;
         z-index: 2;
         font-size: 40px;
-        position: fixed;
+        position: absolute;
         border-radius: 50%;
         border:none;
         right: ${options.right};
