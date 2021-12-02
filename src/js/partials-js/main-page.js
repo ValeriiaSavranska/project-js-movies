@@ -8,8 +8,11 @@ const galleryDiv = document.querySelector('.gallery');
 const headerNavTitle = document.querySelector('.header-nav__logo');
 const searchMovieForm = document.querySelector('#form');
 const linkHome = document.querySelector('.header-nav__list-item-link');
+const divAnimation = document.querySelector('.wrapper');
+const mainContainer = document.querySelector('.container-hidden');
 
 const renderMovies = movies => {
+  divAnimation.innerHTML = '';
   const markup = createMarkup(movies);
   galleryDiv.innerHTML = markup;
 };
@@ -34,6 +37,7 @@ getGenres()
 function onClicByGallery(e) {
   e.preventDefault();
   galleryDiv.innerHTML = '';
+  mainContainer.classList.remove('visually-hidden');
   renderTrendMovies();
 }
 
@@ -50,7 +54,7 @@ function onSearchMovie(e) {
     .then(movies => {
       onPagination(movies.total_results, inputText);
       if (movies.results.length === 0) {
-        galleryDiv.innerHTML = marcup404('Movies not found');
+        divAnimation.innerHTML = marcup404('Movies not found');
         startAnimation();
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
         return;

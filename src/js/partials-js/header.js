@@ -11,6 +11,8 @@ const libraryPageWrapper = document.querySelector('.my-library__wrap');
 const navLogo = document.querySelector('#nav-logo');
 const headerNavBtns = document.querySelector('.header-nav__list');
 const container = document.getElementById('tui-pagination-container');
+const divAnimation = document.querySelector('.wrapper');
+const mainContainer = document.querySelector('.container-hidden');
 
 const changePage = e => {
   e.preventDefault();
@@ -18,6 +20,7 @@ const changePage = e => {
   if (e.target === headerNavBtns) return;
 
   if (e.target === homePage || e.currentTarget === navLogo) {
+    mainContainer.classList.remove('visually-hidden');
     libraryPageWrapper.classList.add('visually-hidden');
     homePageWrapper.classList.remove('visually-hidden');
     libraryPage.classList.remove('current');
@@ -41,15 +44,16 @@ const changePage = e => {
 libraryPage.addEventListener('click', e => {
   showActiveBtn();
   const storage = checkStorage();
-
+  divAnimation.innerHTML = '';
   gallery.innerHTML = '';
 
   if (!localStorage.getItem('Watched') || storage.watchedFilms.length === 0) {
-    gallery.innerHTML = marcup404(`You haven't got any movies yet`);
+    mainContainer.classList.add('visually-hidden');
+    divAnimation.innerHTML = marcup404(`You haven't added movies yet`);
     startAnimation();
     return;
   }
-
+  mainContainer.classList.remove('visually-hidden');
   renderLiblary(storage.watchedFilms);
 });
 
