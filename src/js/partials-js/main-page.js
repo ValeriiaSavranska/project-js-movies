@@ -60,10 +60,10 @@ function onSearchMovie(e) {
   getSearchMovie(inputText)
     .then(movies => {
       if (movies.results.length === 0) {
-        container.classList.add('visually-hidden');
         galleryDiv.innerHTML = marcup404('Movies not found');
         startAnimation();
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
+        container.classList.add('visually-hidden');
         return;
       }
       container.classList.remove('visually-hidden');
