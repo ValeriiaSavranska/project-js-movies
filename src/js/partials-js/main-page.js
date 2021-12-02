@@ -56,7 +56,7 @@ function onSearchMovie(e) {
     .then(movies => {
       if (movies.results.length === 0) {
         onPagination(movies.total_pages, inputText);
-        galleryDiv.innerHTML = marcup404('Movies not found');
+        galleryDiv.innerHTML = marcup404("You haven't got any movies yet");
         startAnimation();
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
         return;
