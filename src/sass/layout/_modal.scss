@@ -8,11 +8,9 @@
   backdrop-filter: blur(2px);
   z-index: 4;
   overflow: auto;
-@include for-tablet {
+  @include for-tablet {
     overflow: hidden;
   }
-
-
 }
 
 .modal {
@@ -229,4 +227,20 @@ button {
   &:hover {
     opacity: 1;
   }
+}
+
+.btn-trailer {
+  // анимация кнопки треллер--------------------------------------------
+  animation: rotateYbtn 5000ms infinite alternate ease-in-out 0ms;
+
+  @keyframes rotateYbtn {
+    0% {
+      transform: rotateY(10deg);
+    }
+
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  // ----------------------------------------------------------------
 }
