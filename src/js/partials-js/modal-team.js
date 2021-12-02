@@ -3,7 +3,7 @@ import imgVladyslav from '../../images/team/vladyslav.jpg';
 import imgBogdan from '../../images/team/bogdan.jpg';
 import imgDima from '../../images/team/dima.jpg';
 import imgIvan from '../../images/team/ivan.jpg';
-// import imgValentyn from '../../images/team';
+import imgValentyn from '../../images/team/valentyn.jpg';
 import imgVitalii from '../../images/team/vitalii.jpg';
 
 import SimpleLightbox from 'simplelightbox';
@@ -59,6 +59,13 @@ function createModalTeam() {
   <p class="pos-team">Developer</p>
   </li>
   <li class="modal-body__item team-leader">
+  <a class="modal-body__item" href="${imgValentyn}">
+    <img src="${imgValentyn}"  class="img-team" alt="Valentyn Onyshchenko" width="150"/>
+  </a>  
+ <p class="name-team">Valentyn Onyshchenko</p>
+  <p class="pos-team">Developer</p>
+  </li>
+  <li class="modal-body__item team-leader">
     <a class="modal-body__item" href="${imgVitalii}">
     <img src="${imgVitalii}"  class="img-team" alt="Vitalii Tymiv" width="150"/>
   </a>
@@ -102,11 +109,3 @@ footerLinkRef.addEventListener('click', e => {
     CloseModalTeam();
   }
 });
-
-/*<li class="modal-body__item team-leader">
-  <a class="modal-body__item" href="${imgValentyn}">
-    <img src="${imgValentyn}"  class="img-team" alt="Valentyn Onyshchenko" width="150"/>
-  </a>  
- <p class="name-team">Valentyn Onyshchenko</p>
-  <p class="pos-team">Developer</p>
-  </li>*/
