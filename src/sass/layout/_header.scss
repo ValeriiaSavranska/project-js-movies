@@ -13,6 +13,7 @@
 .header-nav {
   display: flex;
   justify-content: space-between;
+
   // align-items: baseline;
 }
 
@@ -20,6 +21,19 @@
   stroke: $logo-icon-color;
   // margin-right: 12px;
 
+  // анимация логотипа--------------------------------------------
+  animation: rotateY 2000ms infinite alternate ease-in-out 0ms;
+
+  @keyframes rotateY {
+    0% {
+      transform: rotateY(1deg);
+    }
+
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  // ----------------------------------------------------------------
   @include for-tablet {
     padding-top: 6px;
   }
