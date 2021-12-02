@@ -1,4 +1,3 @@
-// import { Notify } from 'notiflix';
 import { getMovieById } from '../services/api-services';
 import createMarkup from '../markup/library-markup';
 import { marcup404, startAnimation } from '../markup/markup-404';
@@ -44,13 +43,11 @@ const changeLibraryPage = e => {
   if (watchedBtn.dataset.button === 'watched' && e.target === watchedBtn) {
     showActiveBtn();
     const storage = checkStorage();
-    // renderLiblary(storage.watchedFilms);
 
     if (!localStorage.getItem('Watched') || storage.watchedFilms.length === 0) {
       gallery.innerHTML = marcup404('You not added movie yet');
       startAnimation();
       return;
-      // return console.log('NO FILM ADDED YET');
     }
 
     renderLiblary(storage.watchedFilms);
@@ -59,13 +56,11 @@ const changeLibraryPage = e => {
   if (queueBtn.dataset.button === 'queue' && e.target === queueBtn) {
     showActiveBtn(watchedBtn, queueBtn);
     const storage = checkStorage();
-    // renderLiblary(storage.queueFilms);
 
     if (!localStorage.getItem('Queue') || storage.queueFilms.length === 0) {
       gallery.innerHTML = marcup404('You not added movie yet');
       startAnimation();
       return;
-      // return console.log('NO FILM ADDED YET');
     }
 
     renderLiblary(storage.queueFilms);

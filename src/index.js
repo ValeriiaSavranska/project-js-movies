@@ -1,5 +1,3 @@
-// import './sass/main.scss';
-
 import './js/main';
 
 import './js/partials-js/header';
@@ -9,12 +7,8 @@ import './js/partials-js/main-page';
 import './js/partials-js/footer';
 import './js/partials-js/dark-theme';
 import './js/partials-js/up_btn';
-
-// import './js/partials-js/trailer';
-// import './js/services/api-services';
-// import './js/services/pagination';
+import './js/partials-js/modal-team';
+import './js/partials-js/trailer';
+import './js/services/renderModal';
 
 import './sass/main.scss';
-import './js/partials-js/modal-team';
-
-import './js/services/renderModal';

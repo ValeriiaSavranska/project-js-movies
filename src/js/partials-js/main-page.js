@@ -14,52 +14,57 @@ const renderMovies = movies => {
   galleryDiv.innerHTML = markup;
 };
 
+const renderTrendMovies = () => {
+  getTrendingMovies()
+    .then(movies => {
+      onPagination(movies.total_pages);
+      renderMovies(movies);
+    })
+    .catch(err => console.log(err));
+};
+
 getGenres()
   .then(getTrendingMovies)
   .then(movies => {
     onPagination(movies.total_pages);
     renderMovies(movies);
-  });
+  })
+  .catch(err => console.log(err));
+
 function onClicByGallery(e) {
   e.preventDefault();
-galleryDiv.innerHTML = '';
-getTrendingMovies().then(movies => {
-  onPagination(movies.total_pages);
-  renderMovies(movies);
-}); }
+  galleryDiv.innerHTML = '';
+  renderTrendMovies();
+}
 
+function onSearchMovie(e) {
+  e.preventDefault();
+  galleryDiv.innerHTML = '';
+  const inputText = e.target.search.value;
+  if (!inputText) {
+    renderTrendMovies();
+    return;
+  }
+
+  getSearchMovie(inputText)
+    .then(movies => {
+      onPagination(movies.total_pages, inputText);
+      if (movies.results.length === 0) {
+        galleryDiv.innerHTML = marcup404('Movies not found');
+        startAnimation();
+        Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
+        return;
+      }
+      renderMovies(movies);
+    })
+    .catch(err => console.log(err));
+}
 
 headerNavTitle.addEventListener('click', onClicByGallery);
 
 linkHome.addEventListener('click', onClicByGallery);
 
 searchMovieForm.addEventListener('submit', onSearchMovie);
-function onSearchMovie(e) {
-  e.preventDefault();
-  galleryDiv.innerHTML = '';
-  const inputText = e.target.search.value;
-  if (!inputText) {
-    getTrendingMovies().then(movies => {
-      onPagination(movies.total_pages);
-      renderMovies(movies);
-    });
-    return;
-  }
-
-  getSearchMovie(inputText)
-    .then(movies => {
-      if (movies.results.length === 0) {
-        onPagination(movies.total_pages, inputText);
-        galleryDiv.innerHTML = marcup404("You haven't got any movies yet");
-        startAnimation();
-        Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
-        return;
-      }
-      onPagination(movies.total_pages, inputText);
-      renderMovies(movies);
-    })
-    .catch(err => console.log(err.message));
-}
 
 Notiflix.Notify.init({
   width: '400px',
