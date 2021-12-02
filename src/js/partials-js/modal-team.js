@@ -1,10 +1,10 @@
-import imgLera from '../../images/team/Lera.jpg';
-import imgBogdan from '../../images/team/Bogdan.jpg';
-import imgDima from '../../images/team/Dima.jpg';
-import imgIvan from '../../images/team/Ivan.jpg';
-import imgValentyn from '../../images/team/Valentyn.jpg';
-import imgVitalii from '../../images/team/Vitalii.jpg';
-import imgVladyslav from '../../images/team/Vladyslav.jpg';
+import imgLera from '../../images/team/lera.jpg';
+import imgBogdan from '../../images/team/bogdan.jpg';
+import imgDima from '../../images/team/dima.jpg';
+import imgIvan from '../../images/team/ivan.jpg';
+import imgValentyn from '../../images/team/valentyn.jpg';
+import imgVitalii from '../../images/team/vitalii.jpg';
+import imgVladyslav from '../../images/team/vladyslav.jpg';
 
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
