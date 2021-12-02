@@ -17,7 +17,7 @@ const renderMovies = movies => {
 const renderTrendMovies = () => {
   getTrendingMovies()
     .then(movies => {
-      onPagination(movies.total_pages);
+      onPagination(movies.total_results);
       renderMovies(movies);
     })
     .catch(err => console.log(err));
@@ -26,7 +26,7 @@ const renderTrendMovies = () => {
 getGenres()
   .then(getTrendingMovies)
   .then(movies => {
-    onPagination(movies.total_pages);
+    onPagination(movies.total_results);
     renderMovies(movies);
   })
   .catch(err => console.log(err));
@@ -48,7 +48,7 @@ function onSearchMovie(e) {
 
   getSearchMovie(inputText)
     .then(movies => {
-      onPagination(movies.total_pages, inputText);
+      onPagination(movies.total_results, inputText);
       if (movies.results.length === 0) {
         galleryDiv.innerHTML = marcup404('Movies not found');
         startAnimation();

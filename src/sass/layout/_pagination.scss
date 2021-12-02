@@ -17,6 +17,7 @@
     line-height: 1.33;
     border-radius: 5px;
     border: none;
+    background-color: #fff;
   }
 
   .tui-first,
@@ -109,6 +110,7 @@
 
     @include for-tablet {
       display: block;
+      background-color: transparent;
     }
   }
 

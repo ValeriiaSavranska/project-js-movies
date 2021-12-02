@@ -24,16 +24,27 @@ const onPagination = (totalItems = 1000, movieToSearch = '') => {
     lastItemClassName: 'tui-last-child',
   };
 
+  container.classList.remove('visually-hidden');
+
+  if (totalItems <= 20) {
+    container.classList.add('visually-hidden');
+    return;
+  }
+
   const pagination = new Pagination(container, options);
 
   pagination.on('afterMove', eventData => {
     const page = pagination.getCurrentPage();
 
     if (movieToSearch) {
-      getSearchMovie(movieToSearch, page);
+      getSearchMovie(movieToSearch, page)
+        .then(movies => renderMovies(movies))
+        .catch(err => console.log(err));
       scrollToTop();
     } else {
-      getTrendingMovies(page).then(movies => renderMovies(movies));
+      getTrendingMovies(page)
+        .then(movies => renderMovies(movies))
+        .catch(err => console.log(err));
       scrollToTop();
     }
   });
