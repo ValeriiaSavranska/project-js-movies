@@ -1,18 +1,17 @@
 import { genres } from '../services/api-services';
 import notFoundImg from '../../images/image-not-found.jpg';
 export default function createMarkup(movies) {
-  const markup = movies.results.map(
-    ({ id, poster_path, genre_ids, release_date, title }) => {
-      let arrGenre = genre_ids.map(id => genres.find(genre => genre.id === id).name);
-      let img = `https://image.tmdb.org/t/p/w300${poster_path}`;
-      if (arrGenre.length > 3) {
-        arrGenre.splice(2, arrGenre.length - 2, 'Other');
-      }
-      const year = new Date(release_date);
+  const markup = movies.results.map(({ id, poster_path, genre_ids, release_date, title }) => {
+    let arrGenre = genre_ids.map(id => genres.find(genre => genre.id === id).name);
+    let img = `https://image.tmdb.org/t/p/w300${poster_path}`;
+    if (arrGenre.length > 3) {
+      arrGenre.splice(2, arrGenre.length - 2, 'Other');
+    }
+    const year = new Date(release_date);
 
-      return `
+    return `
         <li class="card" data-id="${id}">
-        <img class="card-img" src="${
+        <img class="card-img card-img__anime" src="${
           !poster_path ? notFoundImg : img
         }" alt="${title} " loading="lazy" />
         <div class="card-info">
@@ -22,7 +21,6 @@ export default function createMarkup(movies) {
             </ul>
         </div>
         </li>`;
-    },
-  );
+  });
   return markup.join('');
 }
