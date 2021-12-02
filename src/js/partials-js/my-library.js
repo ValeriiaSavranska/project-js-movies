@@ -6,6 +6,8 @@ const gallery = document.querySelector('.gallery');
 const myLibraryBtns = document.querySelector('.my-library__wrap');
 const watchedBtn = document.querySelector('[data-button="watched"]');
 const queueBtn = document.querySelector('[data-button="queue"]');
+const divAnimation = document.querySelector('.wrapper');
+const mainContainer = document.querySelector('.container-hidden');
 
 const checkStorage = () => {
   return {
@@ -41,28 +43,34 @@ const changeLibraryPage = e => {
   const storage = checkStorage();
 
   if (watchedBtn.dataset.button === 'watched' && e.target === watchedBtn) {
+    divAnimation.innerHTML = '';
+    gallery.innerHTML = '';
     showActiveBtn();
     const storage = checkStorage();
 
     if (!localStorage.getItem('Watched') || storage.watchedFilms.length === 0) {
-      gallery.innerHTML = marcup404('You not added movie yet');
+      mainContainer.classList.add('visually-hidden');
+      divAnimation.innerHTML = marcup404(`You haven't added movies yet`);
       startAnimation();
       return;
     }
-
+    mainContainer.classList.remove('visually-hidden');
     renderLiblary(storage.watchedFilms);
   }
 
   if (queueBtn.dataset.button === 'queue' && e.target === queueBtn) {
+    divAnimation.innerHTML = '';
+    gallery.innerHTML = '';
     showActiveBtn(watchedBtn, queueBtn);
     const storage = checkStorage();
 
     if (!localStorage.getItem('Queue') || storage.queueFilms.length === 0) {
-      gallery.innerHTML = marcup404('You not added movie yet');
+      mainContainer.classList.add('visually-hidden');
+      divAnimation.innerHTML = marcup404(`You haven't added movies yet`);
       startAnimation();
       return;
     }
-
+    mainContainer.classList.remove('visually-hidden');
     renderLiblary(storage.queueFilms);
   }
 };

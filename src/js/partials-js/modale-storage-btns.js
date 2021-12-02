@@ -4,6 +4,8 @@ import { marcup404, startAnimation } from '../markup/markup-404';
 
 const watchedBtn = document.querySelector('[data-button="watched"]');
 const queueBtn = document.querySelector('[data-button="queue"]');
+const divAnimation = document.querySelector('.wrapper');
+const mainContainer = document.querySelector('.container-hidden');
 
 const checkLocalStorage = item => {
   if (!localStorage.getItem(item)) localStorage.setItem(item, '[]');
@@ -57,6 +59,7 @@ const getDataForLibrary = id => {
         !myLibraryBtns.classList.contains('visually-hidden')
       ) {
         const storage = checkStorage();
+        divAnimation.innerHTML = '';
         gallery.innerHTML = '';
         renderLiblary(storage.watchedFilms);
       }
@@ -73,14 +76,16 @@ const getDataForLibrary = id => {
         !myLibraryBtns.classList.contains('visually-hidden')
       ) {
         const storage = checkStorage();
+        divAnimation.innerHTML = '';
         gallery.innerHTML = '';
 
         if (!localStorage.getItem('Watched') || storage.watchedFilms.length === 0) {
-          gallery.innerHTML = marcup404('You not added movie yet');
+          mainContainer.classList.add('visually-hidden');
+          divAnimation.innerHTML = marcup404(`You haven't added movies yet`);
           startAnimation();
           return;
         }
-
+        mainContainer.classList.remove('visually-hidden');
         renderLiblary(storage.watchedFilms);
       }
     }
@@ -95,7 +100,9 @@ const getDataForLibrary = id => {
         !myLibraryBtns.classList.contains('visually-hidden')
       ) {
         const storage = checkStorage();
+        divAnimation.innerHTML = '';
         gallery.innerHTML = '';
+        mainContainer.classList.remove('visually-hidden');
         renderLiblary(storage.queueFilms);
       }
     }
@@ -111,14 +118,16 @@ const getDataForLibrary = id => {
         !myLibraryBtns.classList.contains('visually-hidden')
       ) {
         const storage = checkStorage();
+        divAnimation.innerHTML = '';
         gallery.innerHTML = '';
 
         if (!localStorage.getItem('Queue') || storage.queueFilms.length === 0) {
-          gallery.innerHTML = marcup404('You not added movie yet');
+          mainContainer.classList.add('visually-hidden');
+          divAnimation.innerHTML = marcup404(`You haven't added movies yet`);
           startAnimation();
           return;
         }
-
+        mainContainer.classList.remove('visually-hidden');
         renderLiblary(storage.queueFilms);
       }
     }
