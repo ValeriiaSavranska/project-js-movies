@@ -13,6 +13,7 @@ const mainContainer = document.querySelector('.container-hidden');
 
 const renderMovies = movies => {
   divAnimation.innerHTML = '';
+  mainContainer.classList.remove('visually-hidden');
   const markup = createMarkup(movies);
   galleryDiv.innerHTML = markup;
 };
@@ -54,6 +55,7 @@ function onSearchMovie(e) {
     .then(movies => {
       onPagination(movies.total_results, inputText);
       if (movies.results.length === 0) {
+        mainContainer.classList.add('visually-hidden');
         divAnimation.innerHTML = marcup404('Movies not found');
         startAnimation();
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');

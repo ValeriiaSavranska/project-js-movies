@@ -1,9 +1,9 @@
 import imgLera from '../../images/team/lera.jpg';
-import imgVladyslav from '../../images/team/vladyslav.jpg';
+import imgVladyslav from '../../images/team/vladyslav-1.jpg';
 import imgBogdan from '../../images/team/bogdan.jpg';
 import imgDima from '../../images/team/dima.jpg';
 import imgIvan from '../../images/team/ivan.jpg';
-import imgValentyn from '../../images/team/valentyn.jpg';
+import imgValentyn from '../../images/team/valentyn-1.jpg';
 import imgVitalii from '../../images/team/vitalii.jpg';
 
 import SimpleLightbox from 'simplelightbox';
@@ -12,8 +12,6 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const footerLinkRef = document.querySelector('.footer__link');
 const bodyRef = document.querySelector('body');
 const modalTeam = document.querySelector('#myModal');
-
-
 
 function createModalTeam() {
   const markup = `
@@ -110,7 +108,7 @@ footerLinkRef.addEventListener('click', e => {
       closeModalTeam();
     }
   });
-    
+
   close.addEventListener('click', e => {
     closeModalTeam();
   });
@@ -121,6 +119,4 @@ footerLinkRef.addEventListener('click', e => {
     }
   }
   document.addEventListener('keydown', onEscape);
-
-  
 });
