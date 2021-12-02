@@ -20,24 +20,18 @@ getGenres()
     onPagination(movies.total_pages);
     renderMovies(movies);
   });
-
-headerNavTitle.addEventListener('click', e => {
+function onClicByGallery(e) {
   e.preventDefault();
-  galleryDiv.innerHTML = '';
-  getTrendingMovies().then(movies => {
-    onPagination(movies.total_pages);
-    renderMovies(movies);
-  });
-});
+galleryDiv.innerHTML = '';
+getTrendingMovies().then(movies => {
+  onPagination(movies.total_pages);
+  renderMovies(movies);
+}); }
 
-linkHome.addEventListener('click', e => {
-  e.preventDefault();
-  galleryDiv.innerHTML = '';
-  getTrendingMovies().then(movies => {
-    onPagination(movies.total_pages);
-    renderMovies(movies);
-  });
-});
+
+headerNavTitle.addEventListener('click', onClicByGallery);
+
+linkHome.addEventListener('click', onClicByGallery);
 
 searchMovieForm.addEventListener('submit', onSearchMovie);
 function onSearchMovie(e) {
