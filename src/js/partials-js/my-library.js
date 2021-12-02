@@ -30,10 +30,9 @@ const renderLiblary = movies => {
 };
 
 const getMovies = async ids => {
-  let moviesArr = [];
   const res = await ids.map(id => getMovieById(JSON.parse(id)));
   const data = await Promise.all(res);
-  data.map(movie => moviesArr.splice(0, 0, movie));
+  let moviesArr = data;
   return moviesArr;
 };
 
