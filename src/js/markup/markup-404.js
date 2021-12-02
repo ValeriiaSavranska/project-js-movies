@@ -1,6 +1,6 @@
 const marcup404 = text => {
   return `
- <div class="plug-list">
+ <li class="plug-list">
  <div class="plug-text">
 
   <hr>
@@ -9,7 +9,7 @@ const marcup404 = text => {
 <div class="astronaut">
   <img src="https://images.vexels.com/media/users/3/152639/isolated/preview/506b575739e90613428cdb399175e2c8-space-astronaut-cartoon-by-vexels.png" alt="" class="src">
 </div>
-</div>
+</li>
   
 `;
 };
