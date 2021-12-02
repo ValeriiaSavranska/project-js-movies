@@ -8,11 +8,9 @@
   backdrop-filter: blur(2px);
   z-index: 4;
   overflow: auto;
-@include for-tablet {
+  @include for-tablet {
     overflow: hidden;
   }
-
-
 }
 
 .modal {
@@ -207,6 +205,19 @@ button {
 }
 
 .btn-trailer {
+  // анимация иконки ------------------------------------------------
+  animation: rotateYbtn 6000ms infinite alternate ease-in-out 0ms;
+
+  @keyframes rotateYbtn {
+    0% {
+      transform: rotateY(10deg);
+    }
+
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  // ----------------------------------------------------------------
   position: absolute;
   top: 130px;
   left: -7px;

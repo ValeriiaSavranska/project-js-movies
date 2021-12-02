@@ -22,9 +22,9 @@
   // margin-right: 12px;
 
   // анимация логотипа--------------------------------------------
-  animation: rotateY 2000ms infinite alternate ease-in-out 0ms;
+  animation: rotateYh 2000ms infinite alternate ease-in-out 0ms;
 
-  @keyframes rotateY {
+  @keyframes rotateYh {
     0% {
       transform: rotateY(1deg);
     }
