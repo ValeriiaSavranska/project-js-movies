@@ -8,7 +8,6 @@ const galleryDiv = document.querySelector('.gallery');
 const headerNavTitle = document.querySelector('.header-nav__logo');
 const searchMovieForm = document.querySelector('#form');
 const linkHome = document.querySelector('.header-nav__list-item-link');
-const container = document.getElementById('tui-pagination-container');
 
 const renderMovies = movies => {
   const markup = createMarkup(movies);
@@ -18,7 +17,6 @@ const renderMovies = movies => {
 getGenres()
   .then(getTrendingMovies)
   .then(movies => {
-    container.classList.remove('visually-hidden');
     onPagination(movies.total_pages);
     renderMovies(movies);
   });
@@ -27,7 +25,6 @@ headerNavTitle.addEventListener('click', e => {
   e.preventDefault();
   galleryDiv.innerHTML = '';
   getTrendingMovies().then(movies => {
-    container.classList.remove('visually-hidden');
     onPagination(movies.total_pages);
     renderMovies(movies);
   });
@@ -37,7 +34,6 @@ linkHome.addEventListener('click', e => {
   e.preventDefault();
   galleryDiv.innerHTML = '';
   getTrendingMovies().then(movies => {
-    container.classList.remove('visually-hidden');
     onPagination(movies.total_pages);
     renderMovies(movies);
   });
@@ -50,7 +46,6 @@ function onSearchMovie(e) {
   const inputText = e.target.search.value;
   if (!inputText) {
     getTrendingMovies().then(movies => {
-      container.classList.remove('visually-hidden');
       onPagination(movies.total_pages);
       renderMovies(movies);
     });
@@ -60,13 +55,12 @@ function onSearchMovie(e) {
   getSearchMovie(inputText)
     .then(movies => {
       if (movies.results.length === 0) {
+        onPagination(movies.total_pages, inputText);
         galleryDiv.innerHTML = marcup404('Movies not found');
         startAnimation();
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and ');
-        container.classList.add('visually-hidden');
         return;
       }
-      container.classList.remove('visually-hidden');
       onPagination(movies.total_pages, inputText);
       renderMovies(movies);
     })
