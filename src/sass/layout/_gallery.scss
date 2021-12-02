@@ -2,14 +2,6 @@
   background-color: $main-bg-text-color;
 }
 
-// .page-main__title {
-//   font-size: 25px;
-//   font-weight: 500;
-//   text-align: 1.16;
-//   text-align: center;
-//   padding-top: 20px;
-// }
-
 .gallery {
   justify-content: center;
 
@@ -59,6 +51,19 @@
   }
 
   &-img {
+    // анимация для карточки
+    animation: rotateY 1500ms alternate ease-in-out 250ms;
+
+    @keyframes rotateY {
+      0% {
+        transform: perspective(5000px) rotateY(180deg);
+      }
+
+      100% {
+        transform: perspective(5000px) rotateY(0deg);
+      }
+    }
+
     box-shadow: 1px 1px 5px 5px rgb(255, 255, 255, 0.1);
     border-radius: 5px;
     width: 280px;
