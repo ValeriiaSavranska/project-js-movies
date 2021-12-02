@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Tomorrow', sans-serif;
-  height: 55vh;
+  height: calc(100vh - 304px);
   width: 100vw;
   background-image: linear-gradient(to top, #2e1753, #1f1746, #131537, #0d1028, #050819);
   display: flex;
