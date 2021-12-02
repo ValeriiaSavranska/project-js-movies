@@ -13,50 +13,52 @@ function getOpenModal(e) {
   if (e.target === e.currentTarget) return false;
   id = e.target.closest('li').dataset.id;
 
-  getMovieById(id).then(movie => {
-    const markup = markupModal(movie);
-    divForModal.insertAdjacentHTML('beforeend', markup);
+  getMovieById(id)
+    .then(movie => {
+      const markup = markupModal(movie);
+      divForModal.insertAdjacentHTML('beforeend', markup);
 
-    const modalRef = document.querySelector('.modal');
+      const modalRef = document.querySelector('.modal');
 
-    setTimeout(() => modalRef.classList.add('show-modal'), 50);
+      setTimeout(() => modalRef.classList.add('show-modal'), 50);
 
-    const backdropRef = document.querySelector(`div[data-action="${id}"]`);
+      const backdropRef = document.querySelector(`div[data-action="${id}"]`);
 
-    getDataForLibrary(id);
-    playTrailer(id);
+      getDataForLibrary(id);
+      playTrailer(id);
 
-    bodyRef.classList.add('dont-scroll');
+      bodyRef.classList.add('dont-scroll');
 
-    function removeBackdrop() {
-      backdropRef.remove();
-      bodyRef.classList.remove('dont-scroll');
-      document.removeEventListener('keydown', getCloseModalByEscape);
-    }
+      function removeBackdrop() {
+        backdropRef.remove();
+        bodyRef.classList.remove('dont-scroll');
+        document.removeEventListener('keydown', getCloseModalByEscape);
+      }
 
-    function getCloseModalByEscape(e) {
-      if (e.key === 'Escape') {
+      function getCloseModalByEscape(e) {
+        if (e.key === 'Escape') {
+          removeBackdrop();
+        }
+      }
+
+      function getCloseModal(e) {
+        if (
+          e.target.classList.contains('modal__btn-colse') ||
+          e.target.classList.contains('modal__icon-close')
+        ) {
+          removeBackdrop();
+        }
+
+        if (!e.target.classList.contains('backdrop')) {
+          return;
+        }
         removeBackdrop();
       }
-    }
 
-    function getCloseModal(e) {
-      if (
-        e.target.classList.contains('modal__btn-colse') ||
-        e.target.classList.contains('modal__icon-close')
-      ) {
-        removeBackdrop();
-      }
-
-      if (!e.target.classList.contains('backdrop')) {
-        return;
-      }
-      removeBackdrop();
-    }
-
-    backdropRef.addEventListener('click', getCloseModal);
-    document.addEventListener('keydown', getCloseModalByEscape);
-  });
+      backdropRef.addEventListener('click', getCloseModal);
+      document.addEventListener('keydown', getCloseModalByEscape);
+    })
+    .catch(err => console.log(err));
 }
 
 galleryRef.addEventListener('click', getOpenModal);

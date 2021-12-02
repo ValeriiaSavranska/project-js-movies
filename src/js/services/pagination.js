@@ -6,6 +6,13 @@ import { renderMovies } from '../partials-js/main-page';
 
 const container = document.getElementById('tui-pagination-container');
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
 const onPagination = (totalItems = 1000, movieToSearch = '') => {
   const options = {
     totalItems,
@@ -24,8 +31,10 @@ const onPagination = (totalItems = 1000, movieToSearch = '') => {
 
     if (movieToSearch) {
       getSearchMovie(movieToSearch, page);
+      scrollToTop();
     } else {
       getTrendingMovies(page).then(movies => renderMovies(movies));
+      scrollToTop();
     }
   });
 };

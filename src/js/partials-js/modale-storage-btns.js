@@ -48,7 +48,7 @@ const getDataForLibrary = id => {
     }
 
     if (e.target === addToWatchedBtn) {
-      watchedFilms.splice(0, 0, id);
+      watchedFilms.unshift(id);
       localStorage.setItem('Watched', JSON.stringify(watchedFilms));
       showBtns();
 
@@ -86,7 +86,7 @@ const getDataForLibrary = id => {
     }
 
     if (e.target === addToQueueBtn) {
-      queueFilms.splice(0, 0, id);
+      queueFilms.unshift(id);
       localStorage.setItem('Queue', JSON.stringify(queueFilms));
       showBtns();
 

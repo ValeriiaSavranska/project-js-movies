@@ -13,6 +13,8 @@ const footerLinkRef = document.querySelector('.footer__link');
 const bodyRef = document.querySelector('body');
 const modalTeam = document.querySelector('#myModal');
 
+
+
 function createModalTeam() {
   const markup = `
   <div class="backdrop1">
@@ -87,25 +89,38 @@ footerLinkRef.addEventListener('click', e => {
   createModalTeam();
   window.onscroll = true;
   const close = document.querySelector('.close');
-  const modalmodalContentTeam = document.querySelector('.modal-content');
+  const modalContentTeam = document.querySelector('.modal-content');
   const backdrop = document.querySelector('.backdrop1');
+
   bodyRef.classList.add('no-scroll');
 
-  function CloseModalTeam() {
-    modalmodalContentTeam.remove();
+  function closeModalTeam() {
+    document.removeEventListener('keydown', onEscape);
+    modalContentTeam.remove();
     window.onscroll = false;
     backdrop.remove();
     bodyRef.classList.remove('no-scroll');
   }
-  close.addEventListener('click', e => {
-    CloseModalTeam();
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      CloseModalTeam();
+  modalTeam.addEventListener('click', e => {
+    if (e.target === modalContentTeam) {
+      return;
+    }
+
+    if (e.target.classList.contains('backdrop1')) {
+      closeModalTeam();
     }
   });
-  if (e.target.classList.contains('modal-body')) {
-    CloseModalTeam();
+    
+  close.addEventListener('click', e => {
+    closeModalTeam();
+  });
+
+  function onEscape(e) {
+    if (e.key === 'Escape') {
+      closeModalTeam();
+    }
   }
+  document.addEventListener('keydown', onEscape);
+
+  
 });

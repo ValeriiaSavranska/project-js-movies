@@ -14,41 +14,35 @@ const renderMovies = movies => {
   galleryDiv.innerHTML = markup;
 };
 
+const renderTrendMovies = () => {
+  getTrendingMovies()
+    .then(movies => {
+      onPagination(movies.total_pages);
+      renderMovies(movies);
+    })
+    .catch(err => console.log(err));
+};
+
 getGenres()
   .then(getTrendingMovies)
   .then(movies => {
     onPagination(movies.total_pages);
     renderMovies(movies);
-  });
+  })
+  .catch(err => console.log(err));
 
-headerNavTitle.addEventListener('click', e => {
+function onClicByGallery(e) {
   e.preventDefault();
   galleryDiv.innerHTML = '';
-  getTrendingMovies().then(movies => {
-    onPagination(movies.total_pages);
-    renderMovies(movies);
-  });
-});
+  renderTrendMovies();
+}
 
-linkHome.addEventListener('click', e => {
-  e.preventDefault();
-  galleryDiv.innerHTML = '';
-  getTrendingMovies().then(movies => {
-    onPagination(movies.total_pages);
-    renderMovies(movies);
-  });
-});
-
-searchMovieForm.addEventListener('submit', onSearchMovie);
 function onSearchMovie(e) {
   e.preventDefault();
   galleryDiv.innerHTML = '';
   const inputText = e.target.search.value;
   if (!inputText) {
-    getTrendingMovies().then(movies => {
-      onPagination(movies.total_pages);
-      renderMovies(movies);
-    });
+    renderTrendMovies();
     return;
   }
 
@@ -63,8 +57,14 @@ function onSearchMovie(e) {
       }
       renderMovies(movies);
     })
-    .catch(err => console.log(err.message));
+    .catch(err => console.log(err));
 }
+
+headerNavTitle.addEventListener('click', onClicByGallery);
+
+linkHome.addEventListener('click', onClicByGallery);
+
+searchMovieForm.addEventListener('submit', onSearchMovie);
 
 Notiflix.Notify.init({
   width: '400px',

@@ -6,8 +6,13 @@
   height: 100%;
   background-color: rgba(33, 33, 33, 0.3);
   backdrop-filter: blur(2px);
-
   z-index: 4;
+  overflow: auto;
+@include for-tablet {
+    overflow: hidden;
+  }
+
+
 }
 
 .modal {
