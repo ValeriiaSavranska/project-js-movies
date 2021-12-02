@@ -1,4 +1,3 @@
-import * as basicLightbox from 'basiclightbox';
 import { getMovieById } from './api-services';
 import markupModal from '../markup/markup-modal';
 import getDataForLibrary from '../partials-js/modale-storage-btns';

@@ -1,22 +1,17 @@
-// Описан в документации
+import imgLera from '../../images/team/lera.jpg';
+import imgVladyslav from '../../images/team/vladyslav.jpg';
+import imgBogdan from '../../images/team/bogdan.jpg';
+import imgDima from '../../images/team/dima.jpg';
+import imgIvan from '../../images/team/ivan.jpg';
+import imgValentyn from '../../images/team/valentyn.jpg';
+import imgVitalii from '../../images/team/vitalii.jpg';
+
 import SimpleLightbox from 'simplelightbox';
-// Дополнительный импорт стилей
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import imgLera from '../../images/team/Lera.jpg'
-import imgBogdan from '../../images/team/Bogdan.jpg';
-import imgDima from '../../images/team/Dima.jpg';
-import imgIvan from '../../images/team/Ivan.jpg';
-import imgValentyn from '../../images/team/Valentyn.jpg';
-import imgVitalii from '../../images/team/Vitalii.jpg';
-import imgVladyslav from '../../images/team/Vladyslav.jpg';
-import imglog from '../../images/team/log.jpg';
-  
+
 const footerLinkRef = document.querySelector('.footer__link');
 const bodyRef = document.querySelector('body');
 const modalTeam = document.querySelector('#myModal');
-const close = document.querySelector('.close');
-const vForModal = document.querySelector('.for-modal');
-console.log(vForModal);
 
 function createModalTeam() {
   const markup = `
@@ -37,7 +32,7 @@ function createModalTeam() {
   </li>
   <li class="modal-body__item team-leader">
     <a class="modal-body__item" href="${imgVladyslav}">
-    <img src="${imgVladyslav}"  class="img-team" alt="Scrum master Vladislav Humeniuk" width="150" height:"250"/>
+    <img src="${imgVladyslav}"  class="img-team" alt="Scrum master Vladislav Humeniuk" width="150"/>
   </a>
  <p class="name-team"> Vladislav Humeniuk</p>
   <p class="pos-team">Scrum master</p>
@@ -58,9 +53,16 @@ function createModalTeam() {
   </li>
   <li class="modal-body__item team-leader"> 
   <a class="modal-body__item" href="${imgIvan}">
-    <img src="${imgIvan}"  class="img-team" alt="Ivan Kostenko" width="150" h/>
+    <img src="${imgIvan}"  class="img-team" alt="Ivan Kostenko" width="150"/>
   </a>
  <p class="name-team">Ivan Kostenko</p>
+  <p class="pos-team">Developer</p>
+  </li>
+  <li class="modal-body__item team-leader">
+  <a class="modal-body__item" href="${imgValentyn}">
+    <img src="${imgValentyn}"  class="img-team" alt="Valentyn Onyshchenko" width="150"/>
+  </a>  
+ <p class="name-team">Valentyn Onyshchenko</p>
   <p class="pos-team">Developer</p>
   </li>
   <li class="modal-body__item team-leader">
@@ -70,33 +72,11 @@ function createModalTeam() {
  <p class="name-team">Vitalii Tymiv</p>
   <p class="pos-team">Developer</p>
   </li>
-  <li class="modal-body__item">
-  <a class="modal-body__item" href="${imglog}">
-    <img src="${imglog}"  class="img-team team-logo" alt="Valentyn Onyshchenko" width="150"/>
-  </a>  
- <p class="name-team"></p>
-  <p class="pos-team"></p>
-  </li>
-  <li class="modal-body__item team-leader">
-  <a class="modal-body__item" href="${imgValentyn}">
-    <img src="${imgValentyn}"  class="img-team" alt="Valentyn Onyshchenko" width="150"/>
-  </a>  
- <p class="name-team">Valentyn Onyshchenko</p>
-  <p class="pos-team">Developer</p>
-  </li>
-  <li class="modal-body__item">
-  <a class="modal-body__item" href="${imglog}">
-    <img src="${imglog}"  class="img-team team-logo" alt="Valentyn Onyshchenko" width="150"/>
-  </a>  
- <p class="name-team"></p>
-  <p class="pos-team"></p>
-  </li>
-  
   </ul>
 </div>
 `;
   modalTeam.innerHTML = markup;
-  var lightbox = new SimpleLightbox('.modal-body a', {
+  new SimpleLightbox('.modal-body a', {
     captionsData: 'alt',
     captionDelay: 250,
   });
@@ -110,7 +90,6 @@ footerLinkRef.addEventListener('click', e => {
   const modalmodalContentTeam = document.querySelector('.modal-content');
   const backdrop = document.querySelector('.backdrop1');
   bodyRef.classList.add('no-scroll');
-  
 
   function CloseModalTeam() {
     modalmodalContentTeam.remove();
@@ -129,6 +108,4 @@ footerLinkRef.addEventListener('click', e => {
   if (e.target.classList.contains('modal-body')) {
     CloseModalTeam();
   }
-
 });
-

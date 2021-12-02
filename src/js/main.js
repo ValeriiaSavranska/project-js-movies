@@ -20,5 +20,3 @@ const hideSpinner = () => {
 };
 
 export { handleBySpin };
-
-// import { handleBySpin } from '../main';
