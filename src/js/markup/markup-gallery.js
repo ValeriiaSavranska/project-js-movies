@@ -17,7 +17,9 @@ export default function createMarkup(movies) {
         <div class="card-info">
             <h2 class="card-info__title">${title}</h2>
             <ul class="card-info__text">
-                <li class="link-genre"><p>${arrGenre.join(', ')} | ${year.getFullYear()} </p></li>
+                <li class="link-genre"><p>${arrGenre.join(', ')} | ${
+      year.getFullYear() ? year.getFullYear() : 'no info'
+    } </p></li>
             </ul>
         </div>
         </li>`;
