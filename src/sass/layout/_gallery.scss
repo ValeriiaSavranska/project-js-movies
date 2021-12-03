@@ -1,5 +1,10 @@
 .page-main {
+  min-height: calc(100vh - 304px);
   background-color: $main-bg-text-color;
+
+  @media screen and (max-width: 767px) {
+    min-height: calc(100vh - 318px);
+  }
 }
 
 .gallery {
