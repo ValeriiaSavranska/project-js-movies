@@ -6,6 +6,7 @@ const gallery = document.querySelector('.gallery');
 const header = document.querySelector('#head');
 const homePage = document.querySelector('#home-page');
 const libraryPage = document.querySelector('#library-page');
+const myForm = document.querySelector('#form');
 const homePageWrapper = document.querySelector('.search-film__wrap');
 const libraryPageWrapper = document.querySelector('.my-library__wrap');
 const navLogo = document.querySelector('#nav-logo');
@@ -16,6 +17,7 @@ const mainContainer = document.querySelector('.container-hidden');
 
 const changePage = e => {
   e.preventDefault();
+  myForm.reset();
 
   if (e.target === headerNavBtns) return;
 
@@ -44,6 +46,7 @@ const changePage = e => {
 libraryPage.addEventListener('click', e => {
   showActiveBtn();
   const storage = checkStorage();
+  myForm.reset();
   divAnimation.innerHTML = '';
   gallery.innerHTML = '';
 
